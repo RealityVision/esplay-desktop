@@ -6,6 +6,7 @@
 package services;
 
 import entities.Chat;
+import entities.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ import tools.MaConnexion;
 public class ChatService {
     Connection cn;
     PreparedStatement ps;
-
+    UserService us =new UserService();
     public ChatService() {
         cn=MaConnexion.instconn().getcnx();
     }
@@ -32,11 +33,32 @@ public class ChatService {
         String sql = "INSERT INTO `chat` (`id_user`, `message`, `picture`, `username`) VALUES (?,?,?,?);";
         try {
             ps=cn.prepareStatement(sql);
+            User user= us.ReadUser(c.getId_user());
             
             ps.setInt(1, c.getId_user());
             ps.setString(2,c.getMessage());
-            ps.setString(3, c.getPicture());
-            ps.setString(4, c.getUsername());
+            ps.setString(3, user.getPicture());
+            ps.setString(4, user.getUsername());
+            ps.executeUpdate();
+            
+            System.out.println("message envoyé avec succée");
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    
+        }
+    public void SendFile(Chat c ){
+        String sql = "INSERT INTO `chat` (`id_user`, `message`, `picture`, `username`, `file`) VALUES (?,?,?,?,?);";
+        try {
+            ps=cn.prepareStatement(sql);
+            User user= us.ReadUser(c.getId_user());
+            
+            ps.setInt(1, c.getId_user());
+            ps.setString(2, c.getMessage());
+            ps.setString(3, user.getPicture());
+            ps.setString(4, user.getUsername());
+            ps.setString(5,c.getFile());
             ps.executeUpdate();
             
             System.out.println("message envoyé avec succée");
