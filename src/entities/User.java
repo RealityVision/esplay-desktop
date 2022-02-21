@@ -26,6 +26,9 @@ public class User {
     private String address;
     private String role;
     private String gender;
+    private String salt;
+
+  
 
     @Override
     public String toString() {
@@ -154,6 +157,14 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+    
+      public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
      
 }

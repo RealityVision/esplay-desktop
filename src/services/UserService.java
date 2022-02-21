@@ -30,22 +30,25 @@ public class UserService {
     
     public void CreateUser(User u){
       String sql ="INSERT INTO `user` ( `username`, `first_name`, `last_name`, `phone`, `email`, `password`, `country`,"
-              + " `birth_date`, `picture`, `address`, `gender`, `role`) VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?)";
+              + " `birth_date`, `picture`, `address`, `gender`, `role`,`salt`) VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?,?)";
    
         try {
+            String salt = PasswordUtils.getSalt(20);
+            String mySecurePassword = PasswordUtils.generateSecurePassword(u.getPassword(), salt);
             ps= mc.prepareStatement(sql);
             ps.setString(1, u.getUsername());
             ps.setString(2, u.getFirst_name());
             ps.setString(3, u.getLast_name());
             ps.setInt(4, u.getPhone());
             ps.setString(5, u.getEmail());
-            ps.setString(6, u.getPassword());
+            ps.setString(6,mySecurePassword );
             ps.setString(7, u.getCountry());
             ps.setDate(8, u.getBirthdate());
             ps.setString(9, u.getPicture());
             ps.setString(10, u.getAddress());
             ps.setString(11, u.getGender());
             ps.setString(12, u.getRole());
+            ps.setString(13, salt);
             
             ps.executeUpdate();
             System.out.println("User ajouté avec succés");
@@ -72,6 +75,7 @@ public class UserService {
                u.setPhone(rs.getInt("phone"));
                u.setEmail(rs.getString("email"));
                u.setPassword(rs.getString("password"));
+               u.setPassword(rs.getString("salt"));
                u.setCountry(rs.getString("country"));
                u.setBirthdate(rs.getDate("birth_date"));
                u.setPicture(rs.getString("picture"));
