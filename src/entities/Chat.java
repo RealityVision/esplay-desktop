@@ -11,13 +11,22 @@ import java.sql.Timestamp;
  */
 public class Chat {
     private int id_message,id_user;
-    private String message,username,picture;
+    private String message,username,picture,file;
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
 
     @Override
     public String toString() {
-        return "Chat{" + "id_message=" + id_message + ", id_user=" + id_user + ", message=" + message + ", username=" + username + ", picture=" + picture + ", date_message=" + date_message + '}';
+        return "Chat{" + "id_message=" + id_message + ", id_user=" + id_user + ", message=" + message + ", username=" + username + ", picture=" + picture + ", file=" + file + ", date_message=" + date_message + '}';
     }
 
+    
     public String getPicture() {
         return picture;
     }
@@ -30,11 +39,16 @@ public class Chat {
         public Chat() {
             }
 
-    public Chat(int id_user, String message, String username, String picture) {
+    public Chat(int id_user, String message) {
         this.id_user = id_user;
         this.message = message;
-        this.username = username;
-        this.picture = picture;
+       
+    }
+    public Chat(int id_user,String file,String message ) {
+        this.id_user = id_user;
+        this.message=null;
+        this.file=file;
+      
     }
 
     
