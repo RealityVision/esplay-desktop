@@ -162,6 +162,25 @@ public class UserService {
        
        
    }
+    public void UpdatePassword(String password, int id_user){
+        String salt = PasswordUtils.getSalt(20);
+        String mySecurePassword = PasswordUtils.generateSecurePassword(password, salt);
+      String sql ="UPDATE `user` SET `password` = ?, `salt` = ? WHERE `user`.`id_user` = ?";
+        try {
+            ps= mc.prepareStatement(sql);
+            
+            ps.setString(1,mySecurePassword);
+            ps.setString(2, salt);
+            ps.setInt(3, id_user);
+            
+            ps.executeUpdate();
+            System.out.println("Mot de passe modifier avec succés");
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+    
+    }
    
+
     
 }
