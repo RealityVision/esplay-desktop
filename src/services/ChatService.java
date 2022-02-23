@@ -112,6 +112,11 @@ public class ChatService {
             
         return chat;
     }
-    
+     //ChatService cv= new ChatService();
+      //    Runnable helloRunnable = () -> {
+       //        System.out.println(cv.ReadChat()); 
+       //         };
+        //  ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+       //   executor.scheduleAtFixedRate(helloRunnable, 0, 3, TimeUnit.SECONDS);
     
 }
