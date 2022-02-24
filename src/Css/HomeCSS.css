@@ -20,3 +20,6 @@ and open the template in the editor.
     -fx-background-color : rgba(62, 183, 229, 1);
     
 }
+.vbox{
+    -fx-border-radius: 30px;
+}
