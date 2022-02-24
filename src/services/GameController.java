@@ -31,7 +31,7 @@ public class GameController {
             ste.setString(2, g.getDescription());
             ste.setFloat(3, g.getSize());
             ste.setString(4, g.getRate());
-            ste.setString(5, g.getCategory());
+            ste.setInt(5, g.getCategory());
             ste.executeUpdate();
             System.out.println("Game Added !");
 
@@ -53,7 +53,7 @@ public class GameController {
                 g.setDescription(rs.getString("description"));
                 g.setSize(rs.getFloat("size"));
                 g.setRate(rs.getString("rate"));
-                g.setCategory(rs.getString("category"));
+                g.setCategory(rs.getInt("category"));
                 games.add(g);
             }
         } catch (SQLException ex) {

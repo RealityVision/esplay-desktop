@@ -25,7 +25,7 @@ public class Game {
     
     private String rate;
    
-    private String category;
+    private int category;
 
     public Game() {
     }
@@ -34,7 +34,7 @@ public class Game {
         this.idGame = idGame;
     }
 
-    public Game(Integer idGame, String title, String description, float size, String rate, String category) {
+    public Game(Integer idGame, String title, String description, float size, String rate, int category) {
         this.idGame = idGame;
         this.title = title;
         this.description = description;
@@ -83,11 +83,11 @@ public class Game {
         this.rate = rate;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 

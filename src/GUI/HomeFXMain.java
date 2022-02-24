@@ -26,10 +26,10 @@ public class HomeFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Parent root;
+       
         try {
-           root= FXMLLoader.load(getClass().getResource("Profil_Interface.fxml"));
-           
+
+            Parent root = FXMLLoader.load(getClass().getResource("Authentification_Interface.fxml"));
             
             Scene scene = new Scene(root);
             
