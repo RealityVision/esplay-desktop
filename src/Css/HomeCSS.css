@@ -28,10 +28,10 @@ and open the template in the editor.
 }
 .upbubble{
      -fx-background-color :  #3399ff;
-     -fx-background-radius : 100px;
+     -fx-background-radius : 10;
 }
 .outbubble{
      -fx-background-color :  white;
-     -fx-background-radius : 100px;
+     -fx-background-radius : 10;
      -fx-text-fill : black;
 }

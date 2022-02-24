@@ -26,7 +26,9 @@ public class HomeFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+       
         try {
+
             Parent root = FXMLLoader.load(getClass().getResource("Authentification_Interface.fxml"));
             
             Scene scene = new Scene(root);
