@@ -4,12 +4,17 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
@@ -32,20 +37,23 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Play" textFill="WHITE">
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="34.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Play" textFill="WHITE">
                <graphic>
                   <FontAwesomeIcon fill="WHITE" size="15" text="" />
                </graphic>
                <padding>
-                  <Insets bottom="5.0" left="50.0" top="50.0" />
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
                </padding>
                <font>
                   <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Recommended Games" textFill="WHITE">
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="11.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Recommended Games" textFill="WHITE">
                <padding>
-                  <Insets bottom="5.0" left="50.0" top="50.0" />
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
                </padding>
                <font>
                   <Font size="16.0" />
@@ -53,42 +61,57 @@
                <graphic>
                   <FontAwesomeIcon fill="WHITE" iconName="ADN" size="15" />
                </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Store" textFill="WHITE">
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Store" textFill="WHITE">
                <graphic>
                   <FontAwesomeIcon fill="WHITE" iconName="USD" size="15" text="" />
                </graphic>
                <padding>
-                  <Insets bottom="5.0" left="50.0" top="50.0" />
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
                </padding>
                <font>
                   <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Log out" textFill="WHITE">
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Log out" textFill="WHITE">
                <padding>
-                  <Insets bottom="5.0" left="50.0" top="50.0" />
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
                </padding>
               
                <font>
                   <Font size="16.0" />
                </font>
-               <graphic>
-                  <FontAwesomeIcon fill="WHITE" iconName="LOGOUT" size="15" text="" />
-               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               
             </Button>
          </children>
       </VBox>
-      <VBox layoutX="276.0" prefHeight="695.0" prefWidth="640.0" style="-fx-background-color: #141416;">
+      <VBox layoutX="276.0" prefHeight="695.0" prefWidth="637.0" style="-fx-background-color: #141416;">
          <children>
-            <Button mnemonicParsing="false" stylesheets="@../Css/HomeCSS.css" text="Search for game,Tournament" textFill="WHITE">
-               <graphic>
-                  <FontAwesomeIcon fill="WHITE" iconName="SEARCH" text="" />
-               </graphic>
+            <HBox prefHeight="23.0" prefWidth="314.0">
+               <children>
+                  <Button mnemonicParsing="false" stylesheets="@../Css/HomeCSS.css" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" iconName="SEARCH" text="" />
+                     </graphic>
+                  </Button>
+                  <TextField prefHeight="48.0" prefWidth="200.0" promptText="Search for game,Tournament" style="-fx-background-color: #141416; -fx-text-inner-color: white; -fx-prompt-text-fill: white;" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
                <VBox.margin>
-                  <Insets left="70.0" top="30.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
-            </Button>
+            </HBox>
             <VBox prefHeight="475.0" prefWidth="544.0" style="-fx-background-color: #23262F; -fx-background-radius: 40;" stylesheets="@../Css/HomeCSS.css">
                <VBox.margin>
                   <Insets left="40.0" right="40.0" top="70.0" />
@@ -156,14 +179,122 @@
             </VBox>
          </children>
       </VBox>
-      <VBox layoutX="912.0" prefHeight="695.0" prefWidth="265.0" style="-fx-background-color: #141416;">
+      <VBox layoutX="912.0" layoutY="99.0" prefHeight="596.0" prefWidth="265.0" style="-fx-background-color: #141416;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="265.0" style="-fx-background-color: #23262F;" text="Esplay Community" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="265.0" style="-fx-background-color: #23262F;" text="Esplay Community" textFill="WHITE">
                <graphic>
                   <FontAwesomeIcon fill="#fffefe" iconName="GROUP" />
                </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
+            <ScrollPane prefHeight="493.0" prefWidth="252.0" style="-fx-background-color: #141416;" stylesheets="@../Css/HomeCSS.css">
+               <content>
+                  <VBox prefHeight="616.0" prefWidth="250.0" style="-fx-background-color: #333333;">
+                     <children>
+                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false">
+                           <children>
+                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/avatar1.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" prefHeight="36.0" prefWidth="135.0" styleClass="upbubble" stylesheets="@../Css/HomeCSS.css" text="salut tout le monde" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="267.0" scaleShape="false">
+                           <children>
+                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/avatar2.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" minWidth="-Infinity" prefHeight="36.0" styleClass="outbubble" stylesheets="@../Css/HomeCSS.css" text="salut tout le fffffffffffffffffffmonde" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false">
+                           <children>
+                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/avatar1.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" prefHeight="36.0" prefWidth="135.0" styleClass="upbubble" stylesheets="@../Css/HomeCSS.css" text="salut tout le monde" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox maxHeight="300.0" nodeOrientation="RIGHT_TO_LEFT" scaleShape="false">
+                           <children>
+                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/avatar2.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" minHeight="30.0" minWidth="35.0" prefHeight="36.0" prefWidth="179.0" styleClass="outbubble" stylesheets="@../Css/HomeCSS.css" text="vvvvvbgbvvvvvvvvvvvvvvvvvvvv" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Pane prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #4a4947;">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <ImageView fitHeight="16.0" fitWidth="18.0" layoutX="3.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" rotate="135.9">
+                     <image>
+                        <Image url="@../assets/attach2.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="h1" layoutX="225.0" layoutY="2.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="43.0" style="-fx-background-color: #4a4947;" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;">
+                           <image>
+                              <Image url="@../assets/send1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <effect>
+                        <SepiaTone level="0.0" />
+                     </effect>
+                  </Button>
+                  <TextField layoutX="30.0" prefHeight="48.0" prefWidth="200.0" promptText="Type your message here.." style="-fx-background-color: #4a4947; -fx-text-inner-color: white;" />
+               </children>
+            </Pane>
          </children>
       </VBox>
+      <HBox layoutX="913.0" prefHeight="100.0" prefWidth="265.0" style="-fx-background-color: #141416;" />
    </children>
 </AnchorPane>

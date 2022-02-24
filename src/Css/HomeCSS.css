@@ -23,3 +23,15 @@ and open the template in the editor.
 .vbox{
     -fx-border-radius: 30px;
 }
+.transparent-style{
+     -fx-background-color : #252529;
+}
+.upbubble{
+     -fx-background-color :  #3399ff;
+     -fx-background-radius : 100px;
+}
+.outbubble{
+     -fx-background-color :  white;
+     -fx-background-radius : 100px;
+     -fx-text-fill : black;
+}
