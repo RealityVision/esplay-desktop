@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="414.0" prefWidth="988.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProductController">
+   <children>
+      <ComboBox fx:id="combobox" layoutX="386.0" layoutY="330.0" prefWidth="150.0" promptText="categorie" />
+      <TextField fx:id="inputref" layoutX="385.0" layoutY="142.0" />
+      <Text fill="WHITE" layoutX="28.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REF" />
+      <Text fill="WHITE" layoutX="30.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRIX" />
+      <TextField fx:id="inputdesc" layoutX="386.0" layoutY="213.0" />
+      <TextField fx:id="inputprix" layoutX="388.0" layoutY="259.0" />
+      <Button fx:id="SupprimerFX" layoutX="687.0" layoutY="462.0" mnemonicParsing="false" text="delete" />
+      <Button fx:id="upload" layoutX="385.0" layoutY="402.0" mnemonicParsing="false" onAction="#AjouterImg" prefHeight="31.0" prefWidth="152.0" text="upload" />
+      <Button fx:id="btnajouter" layoutX="597.0" layoutY="462.0" mnemonicParsing="false" onAction="#AjouterProduitFX" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #85fc49;" text="Ajouter " textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="modifieractbtn" layoutX="752.0" layoutY="463.0" mnemonicParsing="false" onAction="#ModifierProduitFX" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: fcb049;" text="modifier" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <TableView fx:id="affichageProd" layoutX="580.0" layoutY="70.0" prefHeight="379.0" prefWidth="516.0" style="-fx-background-color: #05071F; -fx-background-insets: ;">
+         <columns>
+            <TableColumn fx:id="idprodcol" prefWidth="49.0" text="id" />
+            <TableColumn fx:id="refprodcol" prefWidth="101.0" text="ref" />
+            <TableColumn fx:id="descprodcol" prefWidth="114.0" text="description" />
+            <TableColumn fx:id="prixprodcol" prefWidth="77.0" text="prix" />
+            <TableColumn fx:id="img" prefWidth="75.0" text="image" />
+            <TableColumn fx:id="catprodcol" prefWidth="93.0" text="categorie" />
+         </columns>
+      </TableView>
+      <Button layoutX="853.0" layoutY="463.0" mnemonicParsing="false" onAction="#front" text="front" />
+      <Button fx:id="imprimprod" layoutX="1004.0" layoutY="463.0" mnemonicParsing="false" onAction="#Imprimer" prefHeight="29.0" prefWidth="79.0" text="imprimer">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="V_RESIZE" />
+         </cursor>
+      </Button>
+      <VBox alignment="TOP_CENTER" layoutY="-3.0" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../store/src/gui/images/jimmy-fallon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Admin" textFill="#e7e5e5">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../store/src/gui/home/style.css" text="Product" textFill="#e7e5e5">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../store/src/gui/images/icons8_Home_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../store/src/gui/home/style.css" text="Orders">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../store/src/gui/images/icons8_Open_Envelope_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../store/src/gui/home/style.css" text="aaaa">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../store/src/gui/images/icons8_Person_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../store/src/gui/home/style.css" text="Menus">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../store/src/gui/images/icons8_Xbox_Menu_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../store/src/gui/home/style.css" text="Packages">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../store/src/gui/images/icons8_Box_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../store/src/gui/home/style.css" text="Settings">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../store/src/gui/images/icons8_Slider__32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../store/src/gui/home/style.css" text="Sign Out">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../store/src/gui/images/icons8_Sign_Out_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <TextField layoutX="900.0" layoutY="23.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+      <Label layoutX="273.0" layoutY="33.0" text="Gestion du Store  :" textFill="#e7e5e5">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="203.0" prefHeight="73.0" prefWidth="91.0" text="description" textFill="#26bfbc">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="132.0" prefHeight="73.0" prefWidth="91.0" text="Reference" textFill="#26bfbc">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="302.0" layoutY="250.0" prefHeight="73.0" prefWidth="47.0" text="Prix" textFill="#26bfbc">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="308.0" prefHeight="73.0" prefWidth="91.0" text="Categorie" textFill="#26bfbc">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="299.0" layoutY="381.0" prefHeight="73.0" prefWidth="54.0" text="Image" textFill="#26bfbc">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
