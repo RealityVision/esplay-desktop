@@ -280,7 +280,7 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Button id="h1" layoutX="225.0" layoutY="2.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="43.0" style="-fx-background-color: #4a4947;" textAlignment="CENTER">
+                  <Button id="h1" fx:id="btn_send_message" layoutX="225.0" layoutY="2.0" mnemonicParsing="false" onAction="#send_message" prefHeight="41.0" prefWidth="43.0" style="-fx-background-color: #4a4947;" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;">
                            <image>
@@ -292,7 +292,7 @@
                         <SepiaTone level="0.0" />
                      </effect>
                   </Button>
-                  <TextField layoutX="30.0" prefHeight="48.0" prefWidth="200.0" promptText="Type your message here.." style="-fx-background-color: #4a4947; -fx-text-inner-color: white;" />
+                  <TextField fx:id="textfield_message" layoutX="30.0" prefHeight="48.0" prefWidth="200.0" promptText="Type your message here.." style="-fx-background-color: #4a4947; -fx-text-inner-color: white;" />
                   <Button layoutX="4.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-radius: 80; -fx-background-color: #3EB7E5;">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
