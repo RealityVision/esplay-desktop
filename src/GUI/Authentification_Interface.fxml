@@ -42,7 +42,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField opacity="0.4" prefHeight="47.0" prefWidth="430.0" promptText="Email or Phone Number">
+                        <TextField opacity="0.4" prefHeight="47.0" prefWidth="430.0" promptText="Email or Phone Number" styleClass="texxt" stylesheets="@../Css/Auth.css" text="Username">
                            <effect>
                               <Glow />
                            </effect>
@@ -57,7 +57,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField opacity="0.4" prefHeight="56.0" prefWidth="430.0" promptText="Password">
+                        <TextField opacity="0.4" prefHeight="56.0" prefWidth="430.0" promptText="Password" styleClass="texxt" stylesheets="@../Css/Auth.css">
                            <effect>
                               <Glow />
                            </effect>
@@ -103,7 +103,7 @@
       </VBox>
    </left>
    <right>
-      <HBox alignment="CENTER" prefHeight="735.0" prefWidth="435.0" styleClass="bg" stylesheets="@../Css/Auth.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="735.0" prefWidth="368.0" styleClass="bg" stylesheets="@../Css/Auth.css" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="376.0" prefWidth="330.0">
                <children>
@@ -162,7 +162,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" opacity="0.4" prefHeight="82.0" prefWidth="367.0" promptText="Password">
+                        <TextField alignment="CENTER" opacity="1" prefHeight="82.0" prefWidth="367.0" promptText="Password">
                            <effect>
                               <Glow />
                            </effect>
