@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="1115.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="1115.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Authentification_InterfaceController">
    <left>
       <VBox alignment="CENTER" prefHeight="735.0" prefWidth="748.0" spacing="30.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER">
          <children>
@@ -42,7 +42,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField opacity="0.4" prefHeight="47.0" prefWidth="430.0" promptText="Email or Phone Number" styleClass="texxt" stylesheets="@../Css/Auth.css" text="Username">
+                        <TextField fx:id="textFiled_Username" opacity="0.4" prefHeight="47.0" prefWidth="430.0" promptText="Email or Phone Number" styleClass="texxt" stylesheets="@../Css/Auth.css" text="Username">
                            <effect>
                               <Glow />
                            </effect>
@@ -57,7 +57,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField opacity="0.4" prefHeight="56.0" prefWidth="430.0" promptText="Password" styleClass="texxt" stylesheets="@../Css/Auth.css">
+                        <TextField fx:id="TextFiled_password" opacity="0.4" prefHeight="56.0" prefWidth="430.0" promptText="Password" styleClass="texxt" stylesheets="@../Css/Auth.css">
                            <effect>
                               <Glow />
                            </effect>
@@ -70,7 +70,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #245D79;" styleClass="dark-blue" stylesheets="@../Css/Auth.css" text="Login" textFill="WHITE">
+                  <Button fx:id="btn_login" mnemonicParsing="false" onAction="#onclick_login" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #245D79;" styleClass="dark-blue" stylesheets="@../Css/Auth.css" text="Login" textFill="WHITE">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>

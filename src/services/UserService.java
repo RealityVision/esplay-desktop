@@ -120,6 +120,35 @@ public class UserService {
        
        return u;
    }
+     
+     public User ReadUser(String Username){
+       String sql="SELECT * FROM `user` WHERE `user`.`username` = ?";
+       User u = new User();
+        try {
+            ps= mc.prepareStatement(sql);
+            ps.setString(1, Username);
+            ResultSet rs= ps.executeQuery();
+             while(rs.next()){
+               u.setId_user(rs.getInt("id_user"));
+               u.setUsername(rs.getString("username"));
+               u.setFirst_name(rs.getString("first_name"));
+               u.setLast_name(rs.getString("last_name"));
+               u.setPhone(rs.getInt("phone"));
+               u.setEmail(rs.getString("email"));
+               u.setPassword(rs.getString("password"));
+               u.setCountry(rs.getString("country"));
+               u.setBirthdate(rs.getDate("birth_date"));
+               u.setPicture(rs.getString("picture"));
+               u.setAddress(rs.getString("address"));
+               u.setGender(rs.getString("gender"));
+               u.setRole(rs.getString("role"));
+             }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+       
+       return u;
+   }
      public void UpdateUser(User u){
       String sql ="UPDATE `user` SET `username` = ?, `first_name` = ?, `last_name` = ?, `phone` = ?, "
               + "`email` = ?, `password` = ?, `country` = ?, `birth_date` = ?, `picture` = ?, `address` = ?,"

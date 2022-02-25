@@ -5,9 +5,19 @@
  */
 package GUI;
 
+import entities.User;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import services.AuthService;
+import services.UserService;
 
 /**
  * FXML Controller class
@@ -16,6 +26,14 @@ import javafx.fxml.Initializable;
  */
 public class Authentification_InterfaceController implements Initializable {
 
+    @FXML
+    private TextField textFiled_Username;
+    @FXML
+    private TextField TextFiled_password;
+    @FXML
+    private Button btn_login;
+     
+    static int ID;
     /**
      * Initializes the controller class.
      */
@@ -23,5 +41,45 @@ public class Authentification_InterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void onclick_login(ActionEvent event) {
+        String Username = textFiled_Username.getText();
+        String Password = TextFiled_password.getText();
+        AuthService a = new AuthService();
+       System.out.println(a.authentification(Username, Password));
+       if(a.authentification(Username, Password) == 1){
+           UserService us = new UserService();
+           User u = us.ReadUser(Username);
+           ID =u.getId_user();
+           System.out.println(ID); 
+           System.out.println(u.getRole());
+           if(u.getRole().equals("admin")) {
+               
+                 FXMLLoader loder = new FXMLLoader(getClass().getResource("Product.fxml"));
+                 try {
+                     Parent root = loder.load();
+                     btn_login.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
+           }
+           else {
+                 FXMLLoader loder = new FXMLLoader(getClass().getResource("Home_Interface.fxml"));
+                  try {
+                     Parent root = loder.load();
+                     btn_login.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
+           }
+       }
+       else if(a.authentification(Username, Password) == 0) {
+           //ERROR mot de passe incorrect
+       }
+       else {
+           // ERROR user n'existe pas
+       }
+    }
     
 }
