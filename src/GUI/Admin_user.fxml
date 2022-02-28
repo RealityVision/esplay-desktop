@@ -28,7 +28,7 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <TableView fx:id="tableView" layoutX="257.0" layoutY="71.0" opacity="0.82" prefHeight="529.0" prefWidth="1069.0" style="-fx-background-color: #E7E4E4; -fx-background-insets: ;">
+      <TableView fx:id="tableView" layoutX="257.0" layoutY="71.0" onMouseClicked="#getSelected" opacity="0.82" prefHeight="529.0" prefWidth="1069.0" style="-fx-background-color: #E7E4E4; -fx-background-insets: ;">
          <columns>
             <TableColumn fx:id="idcol" prefWidth="49.0" text="id" />
             <TableColumn fx:id="usernamecol" prefWidth="101.0" text="Username" />
@@ -96,6 +96,7 @@
          </children>
       </VBox>
       <TextField layoutX="848.0" layoutY="17.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+      <TextField fx:id="text_id" visible="false" />
       <Label layoutX="273.0" layoutY="33.0" text="Gestion d'utilisateur  :" textFill="#e7e5e5">
          <font>
             <Font size="24.0" />

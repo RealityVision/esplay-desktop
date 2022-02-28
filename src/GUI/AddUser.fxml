@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -104,47 +105,41 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="input_Password" alignment="CENTER" opacity="1" prefHeight="82.0" prefWidth="367.0" promptText="Password">
-                           <effect>
-                              <Glow />
-                           </effect>
-                           <HBox.margin>
-                              <Insets top="10.0" />
-                           </HBox.margin>
+                        <PasswordField fx:id="input_Password" alignment="CENTER" prefHeight="31.0" prefWidth="382.0" promptText="Password" style="-fx-background-color: #434040;" stylesheets="@../Css/Auth.css">
                            <styleClass>
                               <String fx:value="transparent" />
                               <String fx:value="input" />
                               <String fx:value="texxt" />
                            </styleClass>
-                        </TextField>
+                        </PasswordField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <ChoiceBox fx:id="rolebox" prefWidth="150.0" style="-fx-background-color: #434040;" />
+                        <ChoiceBox fx:id="rolebox" prefWidth="150.0" style="-fx-background-color: #434040; -fx-text-fill: white;" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="contol_msg" prefHeight="21.0" prefWidth="384.0" textFill="#e40000" />
+                     </children></HBox>
                   <HBox>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onclick_create" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #141416;" stylesheets="@../Css/Auth.css" text="ADD" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#onclick_create" prefHeight="42.0" prefWidth="135.0" style="-fx-background-color: #434040;" text="ADD" textFill="WHITE">
                            <font>
-                              <Font name="Roboto Regular" size="17.0" />
+                              <Font name="Arial" size="20.0" />
                            </font>
-                           <styleClass>
-                              <String fx:value="dark-blue" />
-                              <String fx:value="button" />
-                           </styleClass>
                            <HBox.margin>
-                              <Insets left="90.0" />
+                              <Insets left="100.0" />
                            </HBox.margin>
                         </Button>
+                      
                         <Button mnemonicParsing="false" onAction="#Onclick_Reset" prefHeight="42.0" prefWidth="135.0" text="Reset">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets left="30.0" />
                            </HBox.margin>
                         </Button>
                      </children>
