@@ -21,7 +21,9 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import services.UserService;
 
 /**
@@ -60,6 +62,9 @@ public class Admin_userController implements Initializable {
     private TableColumn<?,?> actioncol;
     
     ObservableList <User> UsersList = FXCollections.observableArrayList() ;
+ int index = -1; 
+    @FXML
+    private TextField text_id;
  
 
     /**
@@ -67,8 +72,12 @@ public class Admin_userController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       updatetable();
        
-        idcol.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+    }   
+    private void updatetable(){
+    
+     idcol.setCellValueFactory(new PropertyValueFactory<>("id_user"));
        usernamecol.setCellValueFactory(new PropertyValueFactory<>("username"));
        fnamecol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
        lnamecol.setCellValueFactory(new PropertyValueFactory<>("last_name"));
@@ -85,10 +94,15 @@ public class Admin_userController implements Initializable {
          List l1 = us.ReadALLUsers();
          UsersList.addAll(l1);
          tableView.setItems(UsersList);
-    }    
+    
+    }
 
     @FXML
     private void DeleteUser(ActionEvent event) {
+        UserService us = new UserService();
+        us.DeleteUser(Integer.parseInt(text_id.getText()));
+        updatetable();
+        
     }
 
     @FXML
@@ -103,8 +117,14 @@ public class Admin_userController implements Initializable {
     }
 
     @FXML
-    private void updateUser(ActionEvent event) {
-        
+    private void updateUser(ActionEvent event) { 
+         FXMLLoader loder = new FXMLLoader(getClass().getResource("AupdateUser.fxml"));
+                 try {
+                     Parent root = loder.load();
+                     tableView.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
     }
 
     @FXML
@@ -135,6 +155,15 @@ public class Admin_userController implements Initializable {
                      System.out.println(ex.getMessage());
                  }
        
+    }
+
+    @FXML
+    private void getSelected(MouseEvent event) {
+        index = tableView.getSelectionModel().getSelectedIndex();
+        if (index<=-1){
+        return;}
+        text_id.setText(idcol.getCellData(index).toString());
+        System.out.println(text_id.getText());
     }
    
 }

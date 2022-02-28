@@ -165,9 +165,19 @@ public class UserService {
      public void UpdateUser(User u){
       String sql ="UPDATE `user` SET `username` = ?, `first_name` = ?, `last_name` = ?, `phone` = ?, "
               + "`email` = ?, `password` = ?,`salt` = ?, `country` = ?, `birth_date` = ?, `address` = ?,"
-              + " `gender`  WHERE `user`.`id_user` = ?;";
+              + " `gender` = ?   WHERE `user`.`id_user` = ?;";
+      if (!u.getPassword().isEmpty() ){ 
             String salt = PasswordUtils.getSalt(20);
             String mySecurePassword = PasswordUtils.generateSecurePassword(u.getPassword(), salt);
+            u.setPassword(mySecurePassword);
+            u.setSalt(salt);
+      }else {
+         User u1 = ReadUser(u.getId_user());
+         u.setPassword(u1.getPassword());
+         u.setSalt(u1.getSalt());
+      
+      }
+           
         try {
             ps= mc.prepareStatement(sql);
             ps.setString(1, u.getUsername());
@@ -175,7 +185,7 @@ public class UserService {
             ps.setString(3, u.getLast_name());
             ps.setInt(4, u.getPhone());
             ps.setString(5, u.getEmail());
-            ps.setString(6, mySecurePassword);
+            ps.setString(6, u.getPassword());
             ps.setString(7, u.getSalt());
             ps.setString(8, u.getCountry());
             ps.setDate(9, u.getBirthdate());
