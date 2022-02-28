@@ -6,12 +6,15 @@
 package entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
  * @author nadee ben cheikh
  */
 public class User {
+
+   
 
     private int id_user;
     private String username;
@@ -28,7 +31,6 @@ public class User {
     private String gender;
     private String salt;
 
-  
 
     @Override
     public String toString() {
@@ -38,7 +40,14 @@ public class User {
     
      public User() {
     }
-
+ public User(String username, String first_name, String last_name, String email, String password) {
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.password = password;
+    }
+ 
     public User(int id_user, String username, String first_name, String last_name, int phone, String email, String password, String country, Date birthdate, String picture, String address, String role, String gender) {
         this.id_user = id_user;
         this.username = username;
@@ -54,7 +63,28 @@ public class User {
         this.role = role;
         this.gender = gender;
     }
-
+      public User(int id_user, String username, String first_name, String last_name, int phone, String email, String password,String salt, String country, Date birthdate, String address, String gender) {
+        this.id_user = id_user;
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.salt = salt;
+        this.country = country;
+        this.birthdate = birthdate;
+        this.address = address;
+        this.gender = gender;
+    }
+     public User(String username, String first_name, String last_name, String email, String password, String role) {
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
     public int getId_user() {
         return id_user;
     }

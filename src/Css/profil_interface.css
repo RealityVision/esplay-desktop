@@ -1,7 +1,6 @@
 /*
  * Empty Stylesheet file.
  */
-
-.mainFxmlClass {
-
+.texxt{
+    -fx-text-fill : white;
 }

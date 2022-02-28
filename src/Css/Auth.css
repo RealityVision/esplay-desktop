@@ -1,11 +1,11 @@
 .bg{
     
- -fx-background-image:url('../assets/Bgsignup.png');
+ -fx-background-image:url('../assets/back.png');
  -fx-background-size:cover;
 }
 
 •primary-color{
-   -fx-background-color: #FDA540;
+   -fx-background-color: rgba(20, 20, 22, 0.92);
 }
 .radius{
    -fx-background-radius: 30;
@@ -63,4 +63,5 @@
 }
 .texxt{
     -fx-prompt-text-fill : white;
+    -fx-text-fill : white;
 }

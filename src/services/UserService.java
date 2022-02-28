@@ -29,8 +29,7 @@ public class UserService {
     }
     
     public void CreateUser(User u){
-      String sql ="INSERT INTO `user` ( `username`, `first_name`, `last_name`, `phone`, `email`, `password`, `country`,"
-              + " `birth_date`, `picture`, `address`, `gender`, `role`,`salt`) VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?,?)";
+      String sql ="INSERT INTO `user` ( `username`, `first_name`, `last_name`, `email`, `password`,`salt`) VALUES ( ?, ?, ?, ? ,?,?)";
    
         try {
             String salt = PasswordUtils.getSalt(20);
@@ -39,16 +38,9 @@ public class UserService {
             ps.setString(1, u.getUsername());
             ps.setString(2, u.getFirst_name());
             ps.setString(3, u.getLast_name());
-            ps.setInt(4, u.getPhone());
-            ps.setString(5, u.getEmail());
-            ps.setString(6,mySecurePassword );
-            ps.setString(7, u.getCountry());
-            ps.setDate(8, u.getBirthdate());
-            ps.setString(9, u.getPicture());
-            ps.setString(10, u.getAddress());
-            ps.setString(11, u.getGender());
-            ps.setString(12, u.getRole());
-            ps.setString(13, salt);
+            ps.setString(4, u.getEmail());
+            ps.setString(5,mySecurePassword );
+            ps.setString(6, salt);
             
             ps.executeUpdate();
             System.out.println("User ajouté avec succés");
@@ -57,7 +49,28 @@ public class UserService {
         }
     
     }
+     public void CreateUserADMIN(User u){
+      String sql ="INSERT INTO `user` ( `username`, `first_name`, `last_name`, `email`, `password`,`salt`,`role`) VALUES ( ?, ?, ?, ? ,?,?,?)";
+   
+        try {
+            String salt = PasswordUtils.getSalt(20);
+            String mySecurePassword = PasswordUtils.generateSecurePassword(u.getPassword(), salt);
+            ps= mc.prepareStatement(sql);
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getFirst_name());
+            ps.setString(3, u.getLast_name());
+            ps.setString(4, u.getEmail());
+            ps.setString(5,mySecurePassword );
+            ps.setString(6, salt);
+            ps.setString(7, u.getRole());
+            
+            ps.executeUpdate();
+            System.out.println("User ajouté avec succés");
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
     
+    }
  
    public List<User> ReadALLUsers(){
        List<User> users = new ArrayList<>();
@@ -151,9 +164,10 @@ public class UserService {
    }
      public void UpdateUser(User u){
       String sql ="UPDATE `user` SET `username` = ?, `first_name` = ?, `last_name` = ?, `phone` = ?, "
-              + "`email` = ?, `password` = ?, `country` = ?, `birth_date` = ?, `picture` = ?, `address` = ?,"
-              + " `gender` = ?, `role` = ? WHERE `user`.`id_user` = ?;";
-   
+              + "`email` = ?, `password` = ?,`salt` = ?, `country` = ?, `birth_date` = ?, `address` = ?,"
+              + " `gender`  WHERE `user`.`id_user` = ?;";
+            String salt = PasswordUtils.getSalt(20);
+            String mySecurePassword = PasswordUtils.generateSecurePassword(u.getPassword(), salt);
         try {
             ps= mc.prepareStatement(sql);
             ps.setString(1, u.getUsername());
@@ -161,14 +175,13 @@ public class UserService {
             ps.setString(3, u.getLast_name());
             ps.setInt(4, u.getPhone());
             ps.setString(5, u.getEmail());
-            ps.setString(6, u.getPassword());
-            ps.setString(7, u.getCountry());
-            ps.setDate(8, u.getBirthdate());
-            ps.setString(9, u.getPicture());
+            ps.setString(6, mySecurePassword);
+            ps.setString(7, u.getSalt());
+            ps.setString(8, u.getCountry());
+            ps.setDate(9, u.getBirthdate());
             ps.setString(10, u.getAddress());
             ps.setString(11, u.getGender());
-            ps.setString(12, u.getRole());
-            ps.setInt(13, u.getId_user());
+            ps.setInt(12, u.getId_user());
             
             ps.executeUpdate();
             System.out.println("User modifier avec succés");
