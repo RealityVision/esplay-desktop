@@ -14,107 +14,37 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="1115.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Authentification_InterfaceController">
-   <left>
-      <VBox alignment="CENTER" prefHeight="735.0" prefWidth="748.0" spacing="30.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER">
-         <children>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="79.0" prefWidth="340.0" />
-            <HBox prefHeight="286.0" prefWidth="688.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="101.0" prefWidth="236.0" text="Gaming is our passion" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-                     <font>
-                        <Font name="AlphaMaleModern" size="42.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="227.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/logoesplay_1.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets top="150.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-            </HBox>
-            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="371.0" prefWidth="430.0">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="textFiled_Username" opacity="0.4" prefHeight="47.0" prefWidth="430.0" promptText="Email or Phone Number" styleClass="texxt" stylesheets="@../Css/Auth.css" text="Username">
-                           <effect>
-                              <Glow />
-                           </effect>
-                           <font>
-                              <Font name="Roboto Regular" size="12.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="TextFiled_password" opacity="0.4" prefHeight="56.0" prefWidth="430.0" promptText="Password" styleClass="texxt" stylesheets="@../Css/Auth.css">
-                           <effect>
-                              <Glow />
-                           </effect>
-                           <font>
-                              <Font name="Roboto Regular" size="12.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <Button fx:id="btn_login" mnemonicParsing="false" onAction="#onclick_login" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #245D79;" styleClass="dark-blue" stylesheets="@../Css/Auth.css" text="Login" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Roboto Regular" size="17.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="150.0" layoutY="208.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgba(0,0,0,0);" stylesheets="@../Css/Auth.css" text="Forgot passord?" underline="true">
-                     <font>
-                        <Font name="Roboto Regular" size="14.0" />
-                     </font>
-                     <textFill>
-                        <RadialGradient centerX="0.4277777777777778" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="#d4b1ff" />
-                              <Stop color="#ffadba" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </textFill>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </VBox>
-         </children>
-         <padding>
-            <Insets left="30.0" right="30.0" />
-         </padding>
-      </VBox>
-   </left>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="1115.0" styleClass="bg" stylesheets="@../Css/Auth.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Authentification_InterfaceController">
    <right>
-      <HBox alignment="CENTER" prefHeight="735.0" prefWidth="368.0" styleClass="bg" stylesheets="@../Css/Auth.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="735.0" prefWidth="610.0" style="-fx-background-color: #141416;" styleClass="bg" stylesheets="@../Css/Auth.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="376.0" prefWidth="330.0">
+            <Line endX="-179.47669982910156" endY="387.29290771484375" startX="-258.4767761230469" startY="-155.17886352539062" stroke="#2f2d2d" strokeWidth="2.0" />
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="583.0" prefWidth="509.0">
                <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account." wrappingWidth="415.78515625">
+                     <font>
+                        <Font name="Arial Bold" size="42.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Text>
                   <Label alignment="CENTER" prefHeight="48.0" prefWidth="254.0" text="Join us Gamer ! " textFill="WHITE">
                      <font>
                         <Font name="Roboto Regular" size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="50.0" top="40.0" />
+                     </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                  <Label fx:id="TextField_msg" prefHeight="21.0" prefWidth="444.0" />
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" opacity="0.4" prefHeight="82.0" prefWidth="367.0" promptText="Name">
+                        <TextField fx:id="input_Username" alignment="CENTER" opacity="1" prefHeight="82.0" prefWidth="367.0" promptText="Username">
                            <effect>
                               <Glow />
                            </effect>
@@ -124,13 +54,31 @@
                            <styleClass>
                               <String fx:value="transparent" />
                               <String fx:value="input" />
+                              <String fx:value="texxt" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="Input_Name" alignment="CENTER" prefHeight="82.0" prefWidth="367.0" promptText="Name">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="input" />
+                              <String fx:value="texxt" />
                            </styleClass>
                         </TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" opacity="0.4" prefHeight="82.0" prefWidth="367.0" promptText="Last Name">
+                        <TextField fx:id="input_LastName" alignment="CENTER" prefHeight="82.0" prefWidth="367.0" promptText="Last Name">
                            <effect>
                               <Glow />
                            </effect>
@@ -140,13 +88,14 @@
                            <styleClass>
                               <String fx:value="transparent" />
                               <String fx:value="input" />
+                              <String fx:value="texxt" />
                            </styleClass>
                         </TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" opacity="0.4" prefHeight="82.0" prefWidth="367.0" promptText="E-Mail">
+                        <TextField fx:id="input_Email" alignment="CENTER" prefHeight="82.0" prefWidth="367.0" promptText="E-Mail">
                            <effect>
                               <Glow />
                            </effect>
@@ -156,13 +105,14 @@
                            <styleClass>
                               <String fx:value="transparent" />
                               <String fx:value="input" />
+                              <String fx:value="texxt" />
                            </styleClass>
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0" prefHeight="45.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" opacity="1" prefHeight="82.0" prefWidth="367.0" promptText="Password">
+                        <TextField fx:id="input_Password" alignment="CENTER" opacity="1" prefHeight="82.0" prefWidth="367.0" promptText="Password">
                            <effect>
                               <Glow />
                            </effect>
@@ -172,6 +122,7 @@
                            <styleClass>
                               <String fx:value="transparent" />
                               <String fx:value="input" />
+                              <String fx:value="texxt" />
                            </styleClass>
                         </TextField>
                      </children>
@@ -186,15 +137,15 @@
                         </RadialGradient>
                      </textFill>
                      <VBox.margin>
-                        <Insets />
+                        <Insets top="30.0" />
                      </VBox.margin>
                      <padding>
                         <Insets top="20.0" />
                      </padding>
                   </RadioButton>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #245D79;" stylesheets="@../Css/Auth.css" text="Sign Up" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onclick_create" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #141416;" stylesheets="@../Css/Auth.css" text="Sign Up" textFill="WHITE">
                      <VBox.margin>
-                        <Insets top="25.0" />
+                        <Insets top="35.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Roboto Regular" size="17.0" />
@@ -212,4 +163,119 @@
          </BorderPane.margin>
       </HBox>
    </right>
+   <center>
+      <VBox alignment="CENTER" prefHeight="735.0" prefWidth="504.0" spacing="30.0" style="-fx-background-color: #141416;" styleClass="bg" stylesheets="@../Css/Auth.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="79.0" prefWidth="340.0" stylesheets="@../Css/Auth.css" />
+            <VBox prefHeight="28.0" prefWidth="444.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="122.0" prefWidth="378.0" text="Welcome back" textAlignment="CENTER" textFill="#8c6ea1" wrapText="true">
+                     <font>
+                        <Font name="Arial Bold" size="42.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Text fill="#757474" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back! Please enter your details.">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <ImageView fx:id="logo" fitHeight="220.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/logoesplay_1.png" />
+               </image>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="textField_warning" prefHeight="53.0" prefWidth="441.0" textFill="#d01919" />
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="496.0" prefWidth="444.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="textFiled_Username" opacity="0.66" prefHeight="47.0" prefWidth="430.0" promptText="Username" stylesheets="@../Css/Auth.css">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="TextFiled_password" opacity="0.66" prefHeight="56.0" prefWidth="430.0" promptText="Password" stylesheets="@../Css/Auth.css">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <font>
+                              <Font name="Roboto Regular" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Button fx:id="btn_login" mnemonicParsing="false" onAction="#onclick_login" prefHeight="43.0" prefWidth="235.0" style="-fx-background-color: #905B88;" styleClass="dark-blue" stylesheets="@../Css/Auth.css" text="Sign In" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Roboto Regular" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="235.0" style="-fx-background-color: #E7E4E4;" text="Sign In with Google">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="31.0">
+                           <image>
+                              <Image url="@../../../2702602.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="150.0" layoutY="208.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgba(0,0,0,0);" stylesheets="@../Css/Auth.css" text="Forgot passord?" underline="true">
+                     <font>
+                        <Font name="Roboto Regular" size="14.0" />
+                     </font>
+                     <textFill>
+                        <RadialGradient centerX="0.4277777777777778" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop color="#d4b1ff" />
+                              <Stop color="#605b80" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </textFill>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </VBox>
+   </center>
 </BorderPane>
