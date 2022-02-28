@@ -5,6 +5,7 @@
  */
 package entities;
 import java.sql.Timestamp;
+import java.util.Objects;
 /**
  *
  * @author khaled
@@ -92,6 +93,48 @@ public class Chat {
 
     public void setDate_message(Timestamp date_message) {
         this.date_message = date_message;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Chat other = (Chat) obj;
+        if (this.id_message != other.id_message) {
+            return false;
+        }
+        if (this.id_user != other.id_user) {
+            return false;
+        }
+        if (!Objects.equals(this.message, other.message)) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        if (!Objects.equals(this.picture, other.picture)) {
+            return false;
+        }
+        if (!Objects.equals(this.file, other.file)) {
+            return false;
+        }
+        if (!Objects.equals(this.date_message, other.date_message)) {
+            return false;
+        }
+        return true;
     }
     
     
