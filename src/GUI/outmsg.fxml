@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="267.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OutmsgController">
+   <children>
+      <VBox prefHeight="50.0" prefWidth="53.0">
+         <children>
+            <ImageView fx:id="imageview" fitHeight="38.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/avatar2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="label_msg_out" alignment="CENTER" minWidth="-Infinity" prefHeight="26.0" styleClass="outbubble" stylesheets="@../Css/HomeCSS.css" text="ffffffffffffffffffffffffffffffffffffff" textFill="WHITE" VBox.vgrow="SOMETIMES">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="13.0" prefWidth="155.0">
+               <children>
+                  <Label fx:id="label_username" contentDisplay="RIGHT" text="khaledmihoub">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="label_time" text="20-10-2022" wrapText="true">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
