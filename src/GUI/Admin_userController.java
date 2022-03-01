@@ -32,7 +32,7 @@ import services.UserService;
  * @author nadee ben cheikh
  */
 public class Admin_userController implements Initializable {
-
+ static int id ;
     @FXML
     private TableView<User> tableView;
 
@@ -58,14 +58,12 @@ public class Admin_userController implements Initializable {
     private TableColumn<User,String> rolecol;
     @FXML
     private TableColumn<User,String> gendercol;
-    @FXML
-    private TableColumn<?,?> actioncol;
     
     ObservableList <User> UsersList = FXCollections.observableArrayList() ;
  int index = -1; 
     @FXML
     private TextField text_id;
- 
+
 
     /**
      * Initializes the controller class.
@@ -118,7 +116,7 @@ public class Admin_userController implements Initializable {
 
     @FXML
     private void updateUser(ActionEvent event) { 
-         FXMLLoader loder = new FXMLLoader(getClass().getResource("AupdateUser.fxml"));
+         FXMLLoader loder = new FXMLLoader(getClass().getResource("AUpdateUser.fxml"));
                  try {
                      Parent root = loder.load();
                      tableView.getScene().setRoot(root);
@@ -164,6 +162,7 @@ public class Admin_userController implements Initializable {
         return;}
         text_id.setText(idcol.getCellData(index).toString());
         System.out.println(text_id.getText());
+       id = Integer.parseInt(text_id.getText());
     }
    
 }

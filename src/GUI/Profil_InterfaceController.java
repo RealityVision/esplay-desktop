@@ -81,9 +81,10 @@ private void refresh(){
         TextField_Phone.setText(Integer.toString(u.getPhone()));
         TextField_Country.setText(u.getCountry());
         TextField_Gender.setText(u.getGender());
+        if(u.getBirthdate()!=null){
         TextField_Birdh.setValue(u.getBirthdate().toLocalDate());
 }
-
+}
     @FXML
     private void Onclick_save(ActionEvent event) {
           
@@ -109,16 +110,8 @@ private void refresh(){
        
        
        }
-       else if (password.length()<6){
-           success_msg.setTextFill(Color.RED);
-       success_msg.setText("*Password must have at least 6 characters ");
-       
-       
-       }
-         
-         
-         
-         
+    
+
          
          else{
       
@@ -128,7 +121,8 @@ private void refresh(){
        User u = new User(Authentification_InterfaceController.ID, Username, FirstName, LastName, phone, email, password,u1.getSalt(), Country, date, Address, Gender);
        us.UpdateUser(u);
      success_msg.setText("Your profile is updated");
-     refresh();}
+     refresh();
+       }
     }
 
     @FXML

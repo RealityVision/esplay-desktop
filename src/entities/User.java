@@ -32,10 +32,12 @@ public class User {
     private String salt;
 
 
+
     @Override
     public String toString() {
         return "User{" + "id_user=" + id_user + ", username=" + username + ", first_name=" + first_name + ", last_name=" + last_name + ", phone=" + phone + ", email=" + email + ", password=" + password + ", country=" + country + ", birthdate=" + birthdate + ", picture=" + picture + ", address=" + address + ", role=" + role + ", gender=" + gender + '}';
     }
+
 
     
      public User() {
@@ -85,6 +87,22 @@ public class User {
         this.password = password;
         this.role = role;
     }
+           public User(int id_user, String username, String first_name, String last_name, int phone, String email, String password,String salt, String country, Date birthdate, String address, String gender,String role) {
+        this.id_user = id_user;
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.salt = salt;
+        this.country = country;
+        this.birthdate = birthdate;
+        this.address = address;
+        this.gender = gender;
+        this.role = role;
+    }
+     
     public int getId_user() {
         return id_user;
     }
