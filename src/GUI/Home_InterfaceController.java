@@ -9,6 +9,7 @@ import entities.Chat;
 import entities.User;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.sql.Date;
@@ -29,6 +30,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -49,6 +52,7 @@ public class Home_InterfaceController implements Initializable {
     private TextField textfield_message;
     @FXML
     private VBox vbox_chat;
+   
 
     /**
      * Initializes the controller class.
@@ -57,10 +61,14 @@ public class Home_InterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ChatService cv= new ChatService();
         List<Chat> chats = cv.ReadChat();
-      
+      vbox_chat.getChildren().clear();
         refresh(chats);
-        
-         
+           
+      //  InputStream input = this.getClass().getResourceAsStream("../assets/images/copy.png");
+      //  System.out.println(input);
+     //   Image image = new Image(input);
+       // msg_image.setImage(image);
+              
     }    
 
     @FXML
@@ -72,7 +80,7 @@ public class Home_InterfaceController implements Initializable {
         ChatService cs = new ChatService();
         cs.SendMessage(m1);
         textfield_message.setText(null);
-         FXMLLoader fxl = new FXMLLoader();
+            FXMLLoader fxl = new FXMLLoader();
             fxl.setLocation(getClass().getResource("outmsg.fxml"));
             HBox msgg = fxl.load();
             OutmsgController mc = fxl.getController();
@@ -84,6 +92,7 @@ public class Home_InterfaceController implements Initializable {
     public void refresh(List<Chat> c){
     try {
              for (int i =0; i<c.size(); i++){
+                 if (c.get(i).getId_user()!=Authentification_InterfaceController.ID && c.get(i).getMessage()!= null){
             FXMLLoader fxl = new FXMLLoader();
             fxl.setLocation(getClass().getResource("msg.fxml"));
             HBox msgg = fxl.load();
@@ -91,7 +100,25 @@ public class Home_InterfaceController implements Initializable {
             mc.setData(c.get(i).getMessage(),c.get(i).getUsername(),c.get(i).getDate_message());
             
             vbox_chat.getChildren().add(msgg);
-           
+           }else if (c.get(i).getId_user()==Authentification_InterfaceController.ID&& c.get(i).getMessage()!= null){
+                 FXMLLoader fxl = new FXMLLoader();
+            fxl.setLocation(getClass().getResource("outmsg.fxml"));
+            HBox msgg = fxl.load();
+            OutmsgController mc = fxl.getController();
+            mc.setData(c.get(i).getMessage(),c.get(i).getUsername(),c.get(i).getDate_message() );     
+            vbox_chat.getChildren().add(msgg);
+
+                 }else if (c.get(i).getMessage()== null && c.get(i).getId_user()==Authentification_InterfaceController.ID){
+                     System.out.println("null message");
+                     System.out.println(c.get(i).getFile());
+                     FXMLLoader fxl = new FXMLLoader();
+                    fxl.setLocation(getClass().getResource("outmsgfile.fxml"));
+                    HBox msgg = fxl.load();
+                    OutmsgfileController mc = fxl.getController();
+                         System.out.println(c.get(i).getFile()+ "  kbal fnc");
+                        mc.setData(c.get(i).getFile()) ;     
+                        vbox_chat.getChildren().add(msgg);
+                 }
              }
         } catch (IOException ex) {
             Logger.getLogger(Home_InterfaceController.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,21 +127,10 @@ public class Home_InterfaceController implements Initializable {
     
     }
 
-    @FXML
-    private void logout(ActionEvent event) {
-        Authentification_InterfaceController.ID=0;
-        FXMLLoader loder = new FXMLLoader(getClass().getResource("Authentification_Interface.fxml"));
-                 try {
-                     Parent root = loder.load();
-                     btn_send_message.getScene().setRoot(root);
-                 } catch (IOException ex) {
-                     System.out.println(ex.getMessage());
-                 }
-        
-    }
-
+   
     @FXML
     private void btn_sendfile(ActionEvent event) {
+        
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         
@@ -129,13 +145,58 @@ public class Home_InterfaceController implements Initializable {
         
         File source = null;
         File destination = null;
-        destination = new File (newpath+"copy.png");
+     
+        
+        String ext = f.getAbsolutePath().substring(f.getAbsolutePath().lastIndexOf('.') +1);
+        String namefile = getRandomStr();
+        destination = new File (newpath+namefile+'.'+ext);
+     
         source =new File(f.getAbsolutePath());
         try {
             Files.copy(source.toPath(), destination.toPath());
+           
+            ChatService cs = new ChatService();
+             String  file = "../assets/images/"+namefile+'.'+ext;
+             Chat c = new Chat (Authentification_InterfaceController.ID,file,null);
+                cs.SendFile(c);
+ 
                     } catch (IOException ex) {
             Logger.getLogger(Home_InterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        FXMLLoader loder = new FXMLLoader(getClass().getResource("Home_Interface.fxml"));
+                 try {
+                     Parent root = loder.load();
+                     btn_send_message.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
     }
     
+    public static String getRandomStr() 
+    {
+        //choisissez un caractére au hasard à partir de cette chaîne
+        String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    + "abcdefghijklmnopqrstuvxyz"; 
+  
+        StringBuilder s = new StringBuilder(7); 
+  
+        for (int i = 0; i < 7; i++) { 
+            int index = (int)(str.length() * Math.random()); 
+            s.append(str.charAt(index)); 
+        } 
+        return s.toString(); 
+    } 
+     @FXML
+    private void logout(ActionEvent event) {
+        Authentification_InterfaceController.ID=0;
+        FXMLLoader loder = new FXMLLoader(getClass().getResource("Authentification_Interface.fxml"));
+                 try {
+                     Parent root = loder.load();
+                     btn_send_message.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
+        
+    }
+
 }
