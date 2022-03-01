@@ -31,17 +31,16 @@
       <TableView fx:id="tableView" layoutX="257.0" layoutY="71.0" onMouseClicked="#getSelected" opacity="0.82" prefHeight="529.0" prefWidth="1069.0" style="-fx-background-color: #E7E4E4; -fx-background-insets: ;">
          <columns>
             <TableColumn fx:id="idcol" prefWidth="49.0" text="id" />
-            <TableColumn fx:id="usernamecol" prefWidth="101.0" text="Username" />
-            <TableColumn fx:id="fnamecol" prefWidth="97.0" text="First_name" />
-            <TableColumn fx:id="lnamecol" prefWidth="104.0" text="Last_name" />
-            <TableColumn fx:id="phonecol" prefWidth="77.0" text="Phone" />
-            <TableColumn fx:id="emailcol" prefWidth="115.0" text="Email" />
-            <TableColumn fx:id="countrycol" prefWidth="75.0" text="Country" />
-            <TableColumn fx:id="birthcol" prefWidth="85.0" text="Birth_date" />
-            <TableColumn fx:id="addresscol" prefWidth="85.0" text="Address" />
-            <TableColumn fx:id="gendercol" prefWidth="78.0" text="Gender" />
-            <TableColumn fx:id="rolecol" prefWidth="85.0" text="Role" />
-            <TableColumn fx:id="actioncol" prefWidth="103.0" text="Action" />
+            <TableColumn fx:id="usernamecol" prefWidth="128.0" text="Username" />
+            <TableColumn fx:id="fnamecol" prefWidth="99.0" text="First_name" />
+            <TableColumn fx:id="lnamecol" prefWidth="92.0" text="Last_name" />
+            <TableColumn fx:id="phonecol" prefWidth="101.0" text="Phone" />
+            <TableColumn fx:id="emailcol" prefWidth="118.0" text="Email" />
+            <TableColumn fx:id="countrycol" prefWidth="76.0" text="Country" />
+            <TableColumn fx:id="birthcol" prefWidth="104.0" text="Birth_date" />
+            <TableColumn fx:id="addresscol" prefWidth="102.0" text="Address" />
+            <TableColumn fx:id="gendercol" prefWidth="97.0" text="Gender" />
+            <TableColumn fx:id="rolecol" prefWidth="102.0" text="Role" />
          </columns>
       </TableView>
       <Button layoutX="1211.0" layoutY="614.0" mnemonicParsing="false" onAction="#Imprimer" prefHeight="29.0" prefWidth="79.0" text="imprimer">

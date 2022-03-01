@@ -57,10 +57,7 @@ public class AddUserController implements Initializable {
 
     @FXML
     private void onclick_create(ActionEvent event) {
-        
-        
-        
-        
+ 
          String Username= input_Username.getText();
        String FirstName= Input_Name.getText();
        String LastName= input_LastName.getText();

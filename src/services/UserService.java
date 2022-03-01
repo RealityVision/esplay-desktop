@@ -120,6 +120,7 @@ public class UserService {
                u.setPhone(rs.getInt("phone"));
                u.setEmail(rs.getString("email"));
                u.setPassword(rs.getString("password"));
+               u.setSalt(rs.getString("salt"));
                u.setCountry(rs.getString("country"));
                u.setBirthdate(rs.getDate("birth_date"));
                u.setPicture(rs.getString("picture"));
@@ -175,9 +176,9 @@ public class UserService {
          User u1 = ReadUser(u.getId_user());
          u.setPassword(u1.getPassword());
          u.setSalt(u1.getSalt());
-      
+
       }
-           
+   
         try {
             ps= mc.prepareStatement(sql);
             ps.setString(1, u.getUsername());
@@ -192,6 +193,45 @@ public class UserService {
             ps.setString(10, u.getAddress());
             ps.setString(11, u.getGender());
             ps.setInt(12, u.getId_user());
+            
+            ps.executeUpdate();
+            System.out.println("User modifier avec succés");
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+    
+    }
+     public void UpdateUserAdmin(User u){
+      String sql ="UPDATE `user` SET `username` = ?, `first_name` = ?, `last_name` = ?, `phone` = ?, "
+              + "`email` = ?, `password` = ?,`salt` = ?, `country` = ?, `birth_date` = ?, `address` = ?,"
+              + " `gender` = ? , `role` = ? WHERE `user`.`id_user` = ?;";
+      if (!u.getPassword().isEmpty() ){ 
+            String salt = PasswordUtils.getSalt(20);
+            String mySecurePassword = PasswordUtils.generateSecurePassword(u.getPassword(), salt);
+            u.setPassword(mySecurePassword);
+            u.setSalt(salt);
+      }else {
+         User u1 = ReadUser(u.getId_user());
+         u.setPassword(u1.getPassword());
+         u.setSalt(u1.getSalt());
+
+      }
+   
+        try {
+            ps= mc.prepareStatement(sql);
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getFirst_name());
+            ps.setString(3, u.getLast_name());
+            ps.setInt(4, u.getPhone());
+            ps.setString(5, u.getEmail());
+            ps.setString(6, u.getPassword());
+            ps.setString(7, u.getSalt());
+            ps.setString(8, u.getCountry());
+            ps.setDate(9, u.getBirthdate());
+            ps.setString(10, u.getAddress());
+            ps.setString(11, u.getGender());
+            ps.setString(12, u.getRole());
+            ps.setInt(13, u.getId_user());
             
             ps.executeUpdate();
             System.out.println("User modifier avec succés");

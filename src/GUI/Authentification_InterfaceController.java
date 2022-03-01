@@ -93,7 +93,7 @@ public class Authentification_InterfaceController implements Initializable {
                         System.out.println(u.getRole());
                         if(u.getRole().equals("admin")) {
 
-                              FXMLLoader loder = new FXMLLoader(getClass().getResource("Product.fxml"));
+                              FXMLLoader loder = new FXMLLoader(getClass().getResource("Admin_user.fxml"));
                               try {
                                   Parent root = loder.load();
                                   btn_login.getScene().setRoot(root);
