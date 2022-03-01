@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InmsgfileController">
+   <children>
+      <ImageView fx:id="image_msg" fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/avatar1.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" minWidth="-Infinity" prefHeight="195.0" prefWidth="212.0" styleClass="outbubble" stylesheets="@../Css/HomeCSS.css" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="msg_image" fitHeight="195.0" fitWidth="150.0">
+               <image>
+                  <Image url="@../assets/Ourgame3.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+   </children>
+</HBox>

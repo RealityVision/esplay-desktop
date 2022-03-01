@@ -61,8 +61,8 @@ public class Home_InterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ChatService cv= new ChatService();
         List<Chat> chats = cv.ReadChat();
-      vbox_chat.getChildren().clear();
-        refresh(chats);
+   
+       // refresh(chats);
            
       //  InputStream input = this.getClass().getResourceAsStream("../assets/images/copy.png");
       //  System.out.println(input);
@@ -93,22 +93,22 @@ public class Home_InterfaceController implements Initializable {
     try {
              for (int i =0; i<c.size(); i++){
                  if (c.get(i).getId_user()!=Authentification_InterfaceController.ID && c.get(i).getMessage()!= null){
-            FXMLLoader fxl = new FXMLLoader();
-            fxl.setLocation(getClass().getResource("msg.fxml"));
-            HBox msgg = fxl.load();
-            MsgController mc = fxl.getController();
-            mc.setData(c.get(i).getMessage(),c.get(i).getUsername(),c.get(i).getDate_message());
-            
-            vbox_chat.getChildren().add(msgg);
-           }else if (c.get(i).getId_user()==Authentification_InterfaceController.ID&& c.get(i).getMessage()!= null){
-                 FXMLLoader fxl = new FXMLLoader();
-            fxl.setLocation(getClass().getResource("outmsg.fxml"));
-            HBox msgg = fxl.load();
-            OutmsgController mc = fxl.getController();
-            mc.setData(c.get(i).getMessage(),c.get(i).getUsername(),c.get(i).getDate_message() );     
-            vbox_chat.getChildren().add(msgg);
+                FXMLLoader fxl = new FXMLLoader();
+                fxl.setLocation(getClass().getResource("msg.fxml"));
+                HBox msgg = fxl.load();
+                MsgController mc = fxl.getController();
+                mc.setData(c.get(i).getMessage(),c.get(i).getUsername(),c.get(i).getDate_message());
 
-                 }else if (c.get(i).getMessage()== null && c.get(i).getId_user()==Authentification_InterfaceController.ID){
+                vbox_chat.getChildren().add(msgg);
+           }else if (c.get(i).getId_user()==Authentification_InterfaceController.ID&& c.get(i).getMessage()!= null){
+                        FXMLLoader fxl = new FXMLLoader();
+                   fxl.setLocation(getClass().getResource("outmsg.fxml"));
+                   HBox msgg = fxl.load();
+                   OutmsgController mc = fxl.getController();
+                   mc.setData(c.get(i).getMessage(),c.get(i).getUsername(),c.get(i).getDate_message() );     
+                   vbox_chat.getChildren().add(msgg);
+
+            }else if (c.get(i).getMessage()== null && c.get(i).getId_user()==Authentification_InterfaceController.ID){
                      System.out.println("null message");
                      System.out.println(c.get(i).getFile());
                      FXMLLoader fxl = new FXMLLoader();
@@ -165,17 +165,6 @@ public class Home_InterfaceController implements Initializable {
         }
         FXMLLoader loder = new FXMLLoader(getClass().getResource("Home_Interface.fxml"));
                  try {
-                     Parent root = loder.load();
-                     btn_send_message.getScene().setRoot(root);
-                 } catch (IOException ex) {
-                     System.out.println(ex.getMessage());
-                 }
-    }
-
-    @FXML
-    private void Onclick_profil(ActionEvent event) {
-                         FXMLLoader loder = new FXMLLoader(getClass().getResource("Profil_Interface.fxml"));
-                  try {
                      Parent root = loder.load();
                      btn_send_message.getScene().setRoot(root);
                  } catch (IOException ex) {

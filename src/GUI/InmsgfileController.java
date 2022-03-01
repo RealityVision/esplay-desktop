@@ -5,31 +5,25 @@
  */
 package GUI;
 
+import java.io.InputStream;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
  *
  * @author khaled
  */
-public class MsgController implements Initializable {
+public class InmsgfileController implements Initializable {
 
-   
+    
+    
     @FXML
     private ImageView image_msg;
-    private Label text_ms;
-    private Label label_username;
-    private Label label_time;
     @FXML
     private ImageView msg_image;
 
@@ -40,15 +34,14 @@ public class MsgController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    public void setData(String txt,String username,Timestamp date){
-   text_ms.setText(txt);
-  
-    label_username.setText(username);
-    
-    
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String strDate = dateFormat.format(date);
-        label_time.setText(strDate);
+    public void setData(String file){
+        
+   InputStream input = OutmsgfileController.class.getResourceAsStream(file);
+        System.out.println(input +"hneee fl fct ");
+        Image image = new Image(input);
+        
+        msg_image.setImage(image);
     
     }
+    
 }

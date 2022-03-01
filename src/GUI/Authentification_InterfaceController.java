@@ -14,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -52,8 +51,6 @@ public class Authentification_InterfaceController implements Initializable {
     private TextField input_Password;
     @FXML
     private Label TextField_msg;
-    @FXML
-    private Label contol_msg;
     /**
      * Initializes the controller class.
      */
@@ -70,19 +67,6 @@ public class Authentification_InterfaceController implements Initializable {
         String Password = TextFiled_password.getText();
         
         
-
-      if (Username.isEmpty() || Password.isEmpty() ){
-      textField_warning.setText("The Login and password fields are required! ");
-      
-      }
-          
-          
-          
-          
-        
-       else {
-                
-                
                  AuthService a = new AuthService();
                   System.out.println(a.authentification(Username, Password));
                  if(a.authentification(Username, Password) == 1){
@@ -94,7 +78,7 @@ public class Authentification_InterfaceController implements Initializable {
                         System.out.println(u.getRole());
                         if(u.getRole().equals("admin")) {
 
-                              FXMLLoader loder = new FXMLLoader(getClass().getResource("Product.fxml"));
+                 FXMLLoader loder = new FXMLLoader(getClass().getResource("Product.fxml"));
                               try {
                                   Parent root = loder.load();
                                   btn_login.getScene().setRoot(root);
@@ -121,52 +105,17 @@ public class Authentification_InterfaceController implements Initializable {
                         // ERROR user n'existe pas
                         textField_warning.setText("Incorrect username");
                     }
-
-                
-                
          }
         
-        
-           
-    }
-
     @FXML
     private void onclick_create(ActionEvent event) {
-        
         
        String Username= input_Username.getText();
        String FirstName= Input_Name.getText();
        String LastName= input_LastName.getText();
        String email= input_Email.getText();
        String password= input_Password.getText();
-         if (Username.isEmpty()||FirstName.isEmpty()||LastName.isEmpty()||email.isEmpty()||password.isEmpty()){
-           Alert alert = new Alert(Alert.AlertType.ERROR);
-           alert.setHeaderText(null);
-           alert.setContentText("Please fill all DATA");
-           alert.showAndWait();
-       } else if (Username.length()<4){
-           
-       contol_msg.setText("*Username must have at least 4 characters ");
        
-       
-       }else if (email.length()<4 || !email.contains("@") || !email.contains(".")){
-           
-       contol_msg.setText("*Email is not valid ");
-       
-       
-       }
-       else if (password.length()<6){
-           
-       contol_msg.setText("*Password must have at least 6 characters ");
-       
-       
-       }
-         
-         
-         
-         
-         
-         else{
        User u = new User(Username,FirstName,LastName,email,password);
        UserService us = new UserService();
        us.CreateUser(u);
@@ -177,9 +126,8 @@ public class Authentification_InterfaceController implements Initializable {
        input_Email.setText(null);
        input_Password.setText(null);
        
-       contol_msg.setText(null);
        TextField_msg.setText("Account created");
        
     }
-    }
+    
 }
