@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="1154.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Profil_InterfaceController">
+    <stylesheets>
+        <URL value="@/Css/profil_interface.css" />
+    </stylesheets>
+   <children>
+      <VBox prefHeight="698.0" prefWidth="276.0" style="-fx-background-color: #141416;">
+         <children>
+            <Pane prefHeight="151.0" prefWidth="276.0">
+               <children>
+                  <ImageView fitHeight="134.0" fitWidth="136.0" layoutX="71.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/logoesplay.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#Onclick_play" prefHeight="34.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Play" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" size="15" text="" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="11.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Recommended Games" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="ADN" size="15" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="0.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Store" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="USD" size="15" text="" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#Onclick_out" prefHeight="61.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Log out" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="275.0" prefHeight="698.0" prefWidth="637.0" style="-fx-background-color: #141416;">
+         <children>
+            <HBox prefHeight="23.0" prefWidth="314.0">
+               <children>
+                  <Button mnemonicParsing="false" stylesheets="@../Css/HomeCSS.css" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" iconName="SEARCH" text="" />
+                     </graphic>
+                  </Button>
+                  <TextField prefHeight="31.0" prefWidth="227.0" promptText="Search for game,Tournament" style="-fx-background-color: #141416; -fx-text-inner-color: white; -fx-prompt-text-fill: white;" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="598.0" prefWidth="587.0" style="-fx-background-color: #23262F; -fx-background-radius: 40;" stylesheets="@../Css/HomeCSS.css">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <effect>
+                  <Glow />
+               </effect>
+               <children>
+                  <BorderPane prefHeight="165.0" prefWidth="668.0">
+                     <top>
+                        <Circle fx:id="ChampsPhoto" fill="DODGERBLUE" opacity="0.34" radius="62.0" stroke="BLACK" strokeType="INSIDE" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets top="20.0" />
+                           </BorderPane.margin>
+                        </Circle>
+                     </top>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <bottom>
+                        <Text fx:id="Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </BorderPane>
+                  <HBox prefHeight="35.0" prefWidth="587.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Details">
+                           <font>
+                              <Font name="Candara Light" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Details">
+                           <font>
+                              <Font name="Candara Light" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <VBox>
+                           <children>
+                              <TextField fx:id="TextField_User" alignment="TOP_CENTER" opacity="0.14" promptText="Username" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="TextField_Name" alignment="TOP_CENTER" opacity="0.14" promptText="Fisrt name" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="TextField_LName" alignment="TOP_CENTER" opacity="0.14" promptText="Last name" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="TextField_Gender" alignment="TOP_CENTER" opacity="0.14" promptText="Gender" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <DatePicker fx:id="TextField_Birdh" opacity="0.29" prefHeight="24.0" prefWidth="172.0" promptText="Date">
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </DatePicker>
+                              <TextField fx:id="TextField_Country" alignment="TOP_CENTER" opacity="0.14" prefWidth="187.0" promptText="Country" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="TextField_Address" alignment="TOP_CENTER" opacity="0.14" promptText="Address" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <TextField fx:id="TextField_Phone" alignment="TOP_CENTER" opacity="0.14" promptText="Phone" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="TextField_Emails" alignment="TOP_CENTER" opacity="0.14" promptText="Email" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Security context">
+                                 <font>
+                                    <Font name="Candara Light" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="15.0" top="50.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <TextField fx:id="TextField_NPswd" alignment="TOP_CENTER" opacity="0.14" promptText="New Password" style="-fx-background-radius: 10;" stylesheets="@../Css/profil_interface.css">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="160.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="success_msg" alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="541.0" textFill="#00d00a">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#Onclick_save" style="-fx-background-color: #23262F;" text="Save" textFill="#139dff">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#Onclick_Reset" style="-fx-background-color: #23262F;" text="Reset" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="170.0" top="50.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="70.0" />
+         </padding>
+      </VBox>
+      <HBox layoutX="912.0" prefHeight="50.0" prefWidth="265.0" style="-fx-background-color: #23262F;">
+         <children>
+            <Pane>
+               <children>
+                  <ImageView fitHeight="38.0" fitWidth="58.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/avatar1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Text fx:id="Name1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" textAlignment="CENTER" wrappingWidth="162.58203125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <VBox layoutX="912.0" layoutY="50.0" prefHeight="648.0" prefWidth="265.0" style="-fx-background-color: #141416;" />
+   </children>
+</AnchorPane>

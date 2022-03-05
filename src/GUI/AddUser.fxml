@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="745.0" prefWidth="591.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddUserController">
+    <stylesheets>
+        <URL value="@/Css/adduser.css" />
+    </stylesheets>
+   <children>
+      <HBox alignment="CENTER" prefHeight="745.0" prefWidth="620.0" style="-fx-background-color: #141416;" styleClass="bg" stylesheets="@../Css/Auth.css">
+         <children>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="583.0" prefWidth="509.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="User Details" textAlignment="CENTER" wrappingWidth="415.78515625">
+                     <font>
+                        <Font name="Arial Bold" size="42.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="TextField_msg" prefHeight="21.0" prefWidth="444.0" />
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0" prefHeight="45.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="input_Username" alignment="CENTER" opacity="1" prefHeight="82.0" prefWidth="367.0" promptText="Username">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="input" />
+                              <String fx:value="texxt" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="Input_Name" alignment="CENTER" prefHeight="82.0" prefWidth="367.0" promptText="Name">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="input" />
+                              <String fx:value="texxt" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="input_LastName" alignment="CENTER" prefHeight="82.0" prefWidth="367.0" promptText="Last Name">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="input" />
+                              <String fx:value="texxt" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="input_Email" alignment="CENTER" prefHeight="82.0" prefWidth="367.0" promptText="E-Mail">
+                           <effect>
+                              <Glow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="input" />
+                              <String fx:value="texxt" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <PasswordField fx:id="input_Password" alignment="CENTER" prefHeight="31.0" prefWidth="382.0" promptText="Password" style="-fx-background-color: #434040;" stylesheets="@../Css/Auth.css">
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="input" />
+                              <String fx:value="texxt" />
+                           </styleClass>
+                        </PasswordField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <ChoiceBox fx:id="rolebox" prefWidth="150.0" style="-fx-background-color: #434040; -fx-text-fill: white;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="contol_msg" prefHeight="21.0" prefWidth="384.0" textFill="#e40000" />
+                     </children></HBox>
+                  <HBox>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#onclick_create" prefHeight="42.0" prefWidth="135.0" style="-fx-background-color: #434040;" text="ADD" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </Button>
+                      
+                        <Button mnemonicParsing="false" onAction="#Onclick_Reset" prefHeight="42.0" prefWidth="135.0" text="Reset">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

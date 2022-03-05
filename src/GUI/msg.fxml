@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MsgController">
+   <children>
+      <ImageView fx:id="image_msg" fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/avatar1.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="200.0">
+         <children>
+            <Label fx:id="text_ms" alignment="CENTER" prefHeight="26.0" prefWidth="135.0" styleClass="upbubble" stylesheets="@../Css/HomeCSS.css" text="salut tout le monde" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="13.0" prefWidth="155.0">
+               <children>
+                  <Label fx:id="label_username" contentDisplay="RIGHT" text="khaledmihoub">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="label_time" text="20-10-2022" wrapText="true">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

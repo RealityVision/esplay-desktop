@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -64,6 +65,7 @@ import services.ProduitService2;
  * @author slimd
  */
 public class Addproduit2Controller implements Initializable {
+    static int idp;
 
    public String imagecomp; 
                Integer idp2; 
@@ -72,6 +74,8 @@ public class Addproduit2Controller implements Initializable {
     private TextField txtn;
     @FXML
     private TextField txtp;
+     @FXML
+    private TextField txtStk;
      @FXML
     private DatePicker txtda;
     @FXML
@@ -109,6 +113,8 @@ public class Addproduit2Controller implements Initializable {
     private TableColumn<Produit2, String> dateactcol;
     @FXML
     private TableColumn<Produit2, String> prixactcol;
+    @FXML
+    private TableColumn<Produit2, String> stockactcol;
     
     @FXML
     private TextField filterField;
@@ -131,6 +137,10 @@ public class Addproduit2Controller implements Initializable {
     private Button supprimeractbtn;
     @FXML
     private Button modifieractbtn;
+    @FXML
+    private Button btn_sendfile;
+    @FXML
+    private ImageView imagefield2;
    
    
     /**
@@ -175,6 +185,11 @@ public class Addproduit2Controller implements Initializable {
                         ).getPrix()
                           )
                 );
+                 txtStk.setText(String.valueOf(as.liste2()
+                        .get(affichageProduit2.getSelectionModel().getSelectedIndex()
+                        ).getStockProduit()
+                          )
+                );
                
                 };
           
@@ -193,6 +208,7 @@ public class Addproduit2Controller implements Initializable {
             categorieactcol.setCellValueFactory(new PropertyValueFactory<>("categorie"));
             dateactcol.setCellValueFactory(new PropertyValueFactory("date"));
             prixactcol.setCellValueFactory(new PropertyValueFactory<>("prix"));
+            stockactcol.setCellValueFactory(new PropertyValueFactory<>("stock_produit"));
             img.setCellValueFactory(new PropertyValueFactory<>("image"));
            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd"); 
             
@@ -221,7 +237,10 @@ public class Addproduit2Controller implements Initializable {
 					return true; 
 				} else if (Produit2.getCategorie().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true; 
+				}else if (String.valueOf(Produit2.getStockProduit()).indexOf(lowerCaseFilter)!=-1){
+					return true; 
 				}
+                                
 				else if (String.valueOf(Produit2.getPrix()).indexOf(lowerCaseFilter)!=-1)
 				     return true;
 				     else  
@@ -244,11 +263,20 @@ public class Addproduit2Controller implements Initializable {
       
           String p = txtp.getText();
           int prix = Integer.parseInt(p);
-          
+          String s =txtStk.getText();
+          int stockProduit = Integer.parseInt(s);
         
           
 
-        Produit2 a = new Produit2(txtn.getText(),produit2Description.getText(),produit2Categorie.getValue(),Date.valueOf(txtda.getValue().toString()),Produit2.filename,prix );
+        Produit2 a = new Produit2(txtn.getText(),
+                
+                produit2Description.getText(),
+                produit2Categorie.getValue(),
+                Date.valueOf(txtda.getValue().toString()),
+                Produit2.filename,
+                prix,
+                stockProduit,
+                btn_sendfile.getText());
         
         ProduitService2 as = new ProduitService2();
         
@@ -284,13 +312,16 @@ public class Addproduit2Controller implements Initializable {
         
         String p = txtp.getText();
          int prix = Integer.parseInt(p);
-         
+         String s =txtStk.getText();
+          int stockProduit = Integer.parseInt(s);
+        
        
         a.setNom(txtn.getText());
 
         a.setDescription(produit2Description.getText());
         a.setCategorie(produit2Categorie.getValue()); 
         a.setPrix(prix);
+        a.setStockProduit(stockProduit);
         //a.setDate(Date.valueOf(txtda.getValue().toString()));
         a.setImage(imagecomp);
         System.out.println(imagecomp);
@@ -346,6 +377,60 @@ public class Addproduit2Controller implements Initializable {
             alert2.close();
         }
     }
+      public static String getRandomStr() 
+    {
+        //choisissez un caractére au hasard à partir de cette chaîne
+        String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    + "abcdefghijklmnopqrstuvxyz"; 
+  
+        StringBuilder s = new StringBuilder(7); 
+  
+        for (int i = 0; i < 7; i++) { 
+            int index = (int)(str.length() * Math.random()); 
+            s.append(str.charAt(index)); 
+        } 
+        return s.toString(); 
+    } 
+        @FXML
+
+private void btn_sendfile(ActionEvent event) {
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        
+        File f = fileChooser.showOpenDialog(null);
+        System.out.println(f); // yhelou importer file 
+        
+        String newpath = "D:\\wamp64\\www\\";
+        File dir = new File(newpath);
+        if (!dir.exists()){
+           newpath = "C:\\wamp64\\www\\";
+            
+        }
+        
+        File source = null;
+        File destination = null;
+     
+  
+        String ext = f.getAbsolutePath().substring(f.getAbsolutePath().lastIndexOf('.') +1);
+        String namefile = getRandomStr();
+        destination = new File (newpath+namefile+'.'+ext);
+     
+        source =new File(f.getAbsolutePath());
+        try {
+            Files.copy(source.toPath(), destination.toPath());  // yemchi yhotha fl wamp 
+           
+            ProduitService2 ps = new ProduitService2();
+             String  file = newpath +namefile+'.'+ext;
+             btn_sendfile.setText(file);
+           // Produit2 p = new Produit2();
+           //s ps.ajouterProduit2Pst(p);
+ 
+                    } catch (IOException ex) {
+            Logger.getLogger(ProduitService2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+    }
 
     @FXML
     private void uploadimg(ActionEvent event)throws FileNotFoundException, IOException {
@@ -371,25 +456,11 @@ public class Addproduit2Controller implements Initializable {
         imagefield.setFitHeight(215);
         imagefield.setFitWidth(265);
 
-        Produit2.pathfile = fc.getAbsolutePath();
+        Produit2.file = fc.getAbsolutePath();
     }
 
     @FXML
-   /* private void OnClickedStatistique(ActionEvent event) {
-        try {
-                   
-            Parent parent = FXMLLoader.load(getClass().getResource("Piechart.fxml"));
-            Scene scene = new Scene(parent);
-            
-            Stage stage = new Stage();
-            stage.getIcons().add(new Image("C:\\Users\\slimd\\OneDrive\\Bureau\\esplay-desktop\\src\\assets\\logoesplay.png"));
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(Addproduit2Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }*/
+ 
      private void OnClickedStatistique(ActionEvent event) {
           try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Piechart.fxml"));
@@ -459,7 +530,7 @@ public class Addproduit2Controller implements Initializable {
         try {
             listep.clear();
             
-            String requette = " SELECT * FROM `Produit2` WHERE Prix LIKE  '%"+ filterField.getText()+"%' OR nom LIKE  '%"+ filterField.getText()+"%' OR date LIKE  '%"+ filterField.getText()+"%' OR categorie LIKE  '%"+ filterField.getText()+"%' ";
+            String requette = " SELECT * FROM `Produit2` WHERE Prix LIKE  '%"+ filterField.getText()+"%' OR nom LIKE  '%"+ filterField.getText()+"%' OR date LIKE  '%"+ filterField.getText()+"%' OR categorie LIKE  '%"+ filterField.getText()+"%'  OR stock_produit LIKE  '%"+ filterField.getText()+"%' ";
             pst = MCN.prepareStatement(requette);
             rs = pst.executeQuery();
             
@@ -473,7 +544,8 @@ public class Addproduit2Controller implements Initializable {
                         rs.getString("categorie"),
                         rs.getDate("date"),
                         rs.getString("image"),
-                        rs.getInt("prix")
+                        rs.getInt("prix"),
+                        rs.getInt("stock_produit")
                       ));
                 affichageProduit2.setItems(listep);
                

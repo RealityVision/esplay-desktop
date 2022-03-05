@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1333.0" style="-fx-background-color: #141416;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Admin_userController">
+   <children>
+      <Text fill="WHITE" layoutX="28.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REF" />
+      <Text fill="WHITE" layoutX="30.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRIX" />
+      <Button layoutX="456.0" layoutY="613.0" mnemonicParsing="false" onAction="#DeleteUser" prefHeight="29.0" prefWidth="63.0" style="-fx-background-color: #C32000;" text="Delete" textFill="WHITE" />
+      <Button layoutX="257.0" layoutY="614.0" mnemonicParsing="false" onAction="#adduser" prefHeight="29.0" prefWidth="50.0" style="-fx-background-color: #00C372;" text="ADD" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="317.0" layoutY="614.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="31.0" prefWidth="63.0" style="-fx-background-color: fcb049;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableView" layoutX="257.0" layoutY="71.0" onMouseClicked="#getSelected" opacity="0.82" prefHeight="529.0" prefWidth="1069.0" style="-fx-background-color: #E7E4E4; -fx-background-insets: ;">
+         <columns>
+            <TableColumn fx:id="idcol" prefWidth="49.0" text="id" />
+            <TableColumn fx:id="usernamecol" prefWidth="128.0" text="Username" />
+            <TableColumn fx:id="fnamecol" prefWidth="99.0" text="First_name" />
+            <TableColumn fx:id="lnamecol" prefWidth="92.0" text="Last_name" />
+            <TableColumn fx:id="phonecol" prefWidth="101.0" text="Phone" />
+            <TableColumn fx:id="emailcol" prefWidth="118.0" text="Email" />
+            <TableColumn fx:id="countrycol" prefWidth="76.0" text="Country" />
+            <TableColumn fx:id="birthcol" prefWidth="104.0" text="Birth_date" />
+            <TableColumn fx:id="addresscol" prefWidth="102.0" text="Address" />
+            <TableColumn fx:id="gendercol" prefWidth="97.0" text="Gender" />
+            <TableColumn fx:id="rolecol" prefWidth="102.0" text="Role" />
+         </columns>
+      </TableView>
+      <Button layoutX="1211.0" layoutY="614.0" mnemonicParsing="false" onAction="#Imprimer" prefHeight="29.0" prefWidth="79.0" text="imprimer">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <VBox alignment="TOP_CENTER" layoutY="-3.0" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #141416;">
+         <children>
+            <ImageView fitHeight="144.0" fitWidth="520.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/logoesplay.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Admin" textFill="#e7e5e5">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Onclick_Game" prefHeight="42.0" prefWidth="208.0" stylesheets="@../../../store/src/gui/home/style.css" text="Game">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Onclick_Store" prefHeight="42.0" prefWidth="208.0" stylesheets="@../../../store/src/gui/home/style.css" text="Produit">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Onclick_User" prefHeight="42.0" prefWidth="208.0" stylesheets="@../../../store/src/gui/home/style.css" text="Users">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Onclick_logout" prefHeight="42.0" prefWidth="207.0" stylesheets="@../../../store/src/gui/home/style.css" text="Sign Out">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <TextField layoutX="848.0" layoutY="17.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+      <TextField fx:id="text_id" visible="false" />
+      <Label layoutX="273.0" layoutY="33.0" text="Gestion d'utilisateur  :" textFill="#e7e5e5">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
