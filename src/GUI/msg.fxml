@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MsgController">
+<HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MsgController">
    <children>
       <ImageView fx:id="image_msg" fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,9 +24,9 @@
             </Label>
             <HBox prefHeight="13.0" prefWidth="155.0">
                <children>
-                  <Label fx:id="label_username" contentDisplay="RIGHT" text="khaledmihoub">
+                  <Label fx:id="label_username" contentDisplay="RIGHT" text="khaledmihoub" textFill="#6f1111">
                      <font>
-                        <Font size="8.0" />
+                        <Font name="System Bold Italic" size="8.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="10.0" />

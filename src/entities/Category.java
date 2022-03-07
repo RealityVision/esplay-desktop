@@ -13,6 +13,25 @@ import java.util.Objects;
  */
 public class Category {
     
+    private int id_cat;
+
+    public Category() {
+       
+    }
+
+    public int getId_cat() {
+        return id_cat;
+    }
+
+    public void setId_cat(int id_cat) {
+        this.id_cat = id_cat;
+    }
+
+    public Category(int id_cat, String category) {
+        this.id_cat = id_cat;
+        this.category = category;
+    }
+    
     private String category;
 
     public Category(String category) {
@@ -54,8 +73,10 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" + "category=" + category + '}';
+        return "Category{" + "id_cat=" + id_cat + ", category=" + category + '}';
     }
+
+ 
     
     
     

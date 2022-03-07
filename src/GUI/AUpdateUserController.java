@@ -20,7 +20,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
 import services.UserService;
 
@@ -51,12 +53,19 @@ public class AUpdateUserController implements Initializable {
     private TextField input_Phone;
     @FXML
     private TextField input_Country;
-    @FXML
-    private TextField input_Gender;
+ 
     @FXML
     private DatePicker input_Birthdate;
     @FXML
     private TextField TextField_NPswd;
+    @FXML
+    private Label label_gender;
+    @FXML
+    private RadioButton RadioButton;
+    @FXML
+    private RadioButton Radiobutton2;
+    @FXML
+    private ToggleGroup gender;
 
     /**
      * Initializes the controller class.
@@ -65,8 +74,9 @@ public class AUpdateUserController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         rolebox.getItems().add("admin");
         rolebox.getItems().add("player");
-        rolebox.setValue("player");
+       getGender();
         refresh();
+        
     }    
 
     @FXML
@@ -78,8 +88,8 @@ public class AUpdateUserController implements Initializable {
        String Address=  input_Address.getText();
        int phone = Integer.parseInt( input_Phone.getText());
        String Country=  input_Country.getText();
-       String password= TextField_NPswd.getText();
-       String Gender=  input_Gender.getText();
+       String password= ""; 
+       String Gender=  label_gender.getText();
        String role=  rolebox.getValue();
       
        LocalDate birth= input_Birthdate.getValue();
@@ -102,10 +112,20 @@ public class AUpdateUserController implements Initializable {
        
        UserService us = new UserService();
        User u1 = us.ReadUser( Admin_userController.id);
-       User u = new User( Admin_userController.id, Username, FirstName, LastName, phone, email, password,null,Country, date, Address, Gender,role);
+       
+       User u = new User( Admin_userController.id, Username, FirstName, LastName, phone, email, password,"",Country, date, Address, Gender,role);
+       
+      
+       
        us.UpdateUserAdmin(u);
-     contol_msg.setText("Your profile is updated");
-     refresh();
+     contol_msg.setText("profile updated successfully");
+      FXMLLoader loder = new FXMLLoader(getClass().getResource("Admin_user.fxml"));
+                 try {
+                     Parent root = loder.load();
+                     input_Phone.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
         
     }
     }
@@ -120,7 +140,20 @@ public class AUpdateUserController implements Initializable {
         input_Address.setText(u.getAddress());
         input_Phone.setText(Integer.toString(u.getPhone()));
         input_Country.setText(u.getCountry());
-        input_Gender.setText(u.getGender());
+        label_gender.setText(u.getGender());
+          
+      if (u.getGender().equals("Male")){
+          Radiobutton2.setSelected(true);
+      }else if (u.getGender().equals("Female")) {
+      
+      
+        RadioButton.setSelected(true);
+      
+      }else {
+         RadioButton.setSelected(false);
+        Radiobutton2.setSelected(false);}
+      
+          rolebox.setValue(u.getRole());
         if(u.getBirthdate()!=null){
         input_Birthdate.setValue(u.getBirthdate().toLocalDate());
       
@@ -137,6 +170,23 @@ public class AUpdateUserController implements Initializable {
                  } catch (IOException ex) {
                      System.out.println(ex.getMessage());
                  }
+    }
+
+    @FXML
+    private void getGender() {
+        if(RadioButton.isSelected()){
+              label_gender.setText(RadioButton.getText());
+              RadioButton.setSelected(true);
+            
+        }
+        else if (Radiobutton2.isSelected()){
+            label_gender.setText(Radiobutton2.getText());
+            Radiobutton2.setSelected(true);
+        }else {
+         Radiobutton2.setSelected(false);
+        RadioButton.setSelected(false);
+        
+        }
     }
     
 }

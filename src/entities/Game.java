@@ -5,6 +5,8 @@
  */
 package entities;
 
+import java.sql.Timestamp;
+
 
 /**
  *
@@ -21,20 +23,76 @@ public class Game {
     
     private String description;
     
-    private float size;
+    private int size;
+
     
-    private String rate;
+    private Double rate;
    
     private int category;
+    
+    private Timestamp date;
+    
+    private String image;
+    
+    private int ratenbr;
+
+    public Game(Integer idGame, String title, String description, int size, Double rate, int category, String image, int ratenbr) {
+        this.idGame = idGame;
+        this.title = title;
+        this.description = description;
+        this.size = size;
+        this.rate = rate;
+        this.category = category;
+        this.image = image;
+        this.ratenbr = ratenbr;
+    }
+
+    public int getRatenbr() {
+        return ratenbr;
+    }
+
+    public void setRatenbr(int ratenbr) {
+        this.ratenbr = ratenbr;
+    }
 
     public Game() {
     }
 
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+
+    
     public Game(Integer idGame) {
         this.idGame = idGame;
     }
 
-    public Game(Integer idGame, String title, String description, float size, String rate, int category) {
+    public Game(String title, String description, int size, int category,String image) {
+        this.title = title;
+        this.description = description;
+        this.size = size;
+        this.category = category;
+         this.image = image;
+
+       
+    }
+
+    public Game(Integer idGame, String title, String description, int size, Double rate, int category, String image) {
+        this.idGame = idGame;
+        this.title = title;
+        this.description = description;
+        this.size = size;
+        this.rate = rate;
+        this.category = category;
+        this.image = image;
+    }
+    
+
+    public Game(Integer idGame, String title, String description, int size, Double rate, int category) {
         this.idGame = idGame;
         this.title = title;
         this.description = description;
@@ -42,6 +100,8 @@ public class Game {
         this.rate = rate;
         this.category = category;
     }
+
+    
 
     public Integer getIdGame() {
         return idGame;
@@ -67,19 +127,19 @@ public class Game {
         this.description = description;
     }
 
-    public float getSize() {
+    public Integer getSize() {
         return size;
     }
 
-    public void setSize(float size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
-    public String getRate() {
+    public Double getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(Double rate) {
         this.rate = rate;
     }
 
@@ -90,6 +150,14 @@ public class Game {
     public void setCategory(int category) {
         this.category = category;
     }
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
 
     @Override
     public int hashCode() {
@@ -113,9 +181,10 @@ public class Game {
 
     @Override
     public String toString() {
-        return "Game{" + "idGame=" + idGame + ", title=" + title + ", description=" + description + ", size=" + size + ", rate=" + rate + ", category= " + category + '}';
+        return "Game{" + "idGame=" + idGame + ", title=" + title + ", description=" + description + ", size=" + size + ", rate=" + rate + ", category=" + category + ", date=" + date + ", image=" + image + '}';
     }
 
+    
     
     
 }

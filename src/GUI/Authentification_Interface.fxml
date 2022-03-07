@@ -228,22 +228,7 @@
                         <Font name="Roboto Regular" size="17.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="235.0" style="-fx-background-color: #E7E4E4;" text="Sign In with Google">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Arial Bold" size="16.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="31.0">
-                           <image>
-                              <Image url="@../assets/google.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button layoutX="150.0" layoutY="208.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgba(0,0,0,0);" stylesheets="@../Css/Auth.css" text="Forgot passord?" underline="true">
+                  <Button fx:id="btn_pass" layoutX="150.0" layoutY="208.0" mnemonicParsing="false" onAction="#Onclick_ForgotPassword" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: rgba(0,0,0,0);" stylesheets="@../Css/Auth.css" text="Forgot passord?" underline="true">
                      <font>
                         <Font name="Roboto Regular" size="14.0" />
                      </font>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
+
+<HBox prefHeight="276.0" prefWidth="678.0" style="-fx-background-color: #23262F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameItemController">
+   <children>
+      <ImageView fx:id="game_img" fitHeight="237.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Backups/slim2/téléchargement.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="174.0" prefWidth="211.0">
+         <children>
+            <Text fx:id="game_label" fill="#5432ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Game" textAlignment="CENTER" wrappingWidth="198.18994140625">
+               <VBox.margin>
+                  <Insets left="50.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto Regular" size="21.0" />
+               </font>
+            </Text>
+            <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="281.0" spacing="20.0">
+               <children>
+                  <Label fx:id="rate_game" text="5" textFill="#d00d0d">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Rating max="1" />
+                  <Button fx:id="play_btn" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#goGameplayInterface1" text="Play" textFill="RED">
+                     <font>
+                        <Font name="Roboto Regular" size="16.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+            <Text fx:id="game_dscr" fill="#5397d7" strokeType="OUTSIDE" strokeWidth="0.0" text="Text messages are used for personal, family, business and social purposes. Governmental and non-governmental organizations use text messaging for communication between colleagues. In the 2010s, the sending of short informal messages became an accepted part of many cultures, as happened earlier with emailing.[1] " wrappingWidth="414.13671875">
+               <VBox.margin>
+                  <Insets left="20.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+   </children>
+</HBox>

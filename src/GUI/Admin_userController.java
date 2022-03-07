@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,8 +18,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -97,9 +106,20 @@ public class Admin_userController implements Initializable {
 
     @FXML
     private void DeleteUser(ActionEvent event) {
-        UserService us = new UserService();
-        us.DeleteUser(Integer.parseInt(text_id.getText()));
+        
+        Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert2.setTitle("Confirmation");
+        alert2.setHeaderText("Do you want to delete this user ?");
+        Optional<ButtonType> result = alert2.showAndWait();
+        System.out.println(result.toString());
+        if(!result.get().getText().equals("Annuler")){
+            UserService us = new UserService();
+            us.DeleteUser(Integer.parseInt(text_id.getText()));
+            updatetable();
+        }else {
         updatetable();
+        }
+        
         
     }
 
@@ -127,14 +147,43 @@ public class Admin_userController implements Initializable {
 
     @FXML
     private void Imprimer(ActionEvent event) {
+          PrinterJob job = PrinterJob.createPrinterJob();
+       
+        Node root= this.tableView;
+        
+     if(job != null){
+     job.showPrintDialog(root.getScene().getWindow()); // Window must be your main Stage
+     Printer printer = job.getPrinter();
+     PageLayout pageLayout = printer.createPageLayout(Paper.A3, PageOrientation.LANDSCAPE, Printer.MarginType.HARDWARE_MINIMUM);
+     boolean success = job.printPage(pageLayout, root);
+     if(success){
+        job.endJob();
+     }
+   }
     }
 
     @FXML
     private void Onclick_Game(ActionEvent event) {
+                FXMLLoader loder = new FXMLLoader(getClass().getResource("Dashboard_Games.fxml"));
+                 try {
+                     Parent root = loder.load();
+                     tableView.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
+       
+        
     }
 
-    @FXML
+   @FXML
     private void Onclick_Store(ActionEvent event) {
+         FXMLLoader loder = new FXMLLoader(getClass().getResource("Addproduit2.fxml"));
+                  try {
+                     Parent root = loder.load();
+                     tableView.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
     }
 
     @FXML

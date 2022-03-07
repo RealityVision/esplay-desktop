@@ -5,6 +5,7 @@
  */
 package GUI;
 
+
 import entities.User;
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +24,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import services.UserService;
-
+import com.twilio.Twilio; 
+import com.twilio.converter.Promoter; 
+import com.twilio.rest.api.v2010.account.Message; 
+import com.twilio.type.PhoneNumber; 
+ 
+import java.net.URI; 
+import java.math.BigDecimal; 
+ 
 /**
  * FXML Controller class
  *
@@ -60,7 +68,8 @@ public class Profil_InterfaceController implements Initializable {
     @FXML
     private Label success_msg;
     
-
+    public static final String ACCOUNT_SID = "AC72f2254b1b6832869635bd0b218c0c0f"; 
+    public static final String AUTH_TOKEN = "d07e894cca62c29ce9b89cccd18c7d97"; 
     /**
      * Initializes the controller class.
      */
@@ -102,26 +111,34 @@ private void refresh(){
         if (Username.length()<4){
            success_msg.setTextFill(Color.RED);
        success_msg.setText("*Username must have at least 4 characters ");
-       
-       
+
        }else if (email.length()<4 || !email.contains("@") || !email.contains(".")){
          success_msg.setTextFill(Color.RED);  
        success_msg.setText("*Email is not valid ");
-       
-       
-       }
-    
 
-         
+       }
+
          else{
-      
-       
+
        UserService us = new UserService();
        User u1 = us.ReadUser(Authentification_InterfaceController.ID);
        User u = new User(Authentification_InterfaceController.ID, Username, FirstName, LastName, phone, email, password,u1.getSalt(), Country, date, Address, Gender);
        us.UpdateUser(u);
      success_msg.setText("Your profile is updated");
      refresh();
+       }
+        
+        if (!TextField_Phone.getText().isEmpty()){
+            
+    
+                  Twilio.init(ACCOUNT_SID, AUTH_TOKEN); 
+                  Message message = Message.creator( 
+                new com.twilio.type.PhoneNumber("+21651518887"),  
+                "MGc90acfe076f9f643c6e4f1c276e24acd", 
+                "Welcome to Esplay app stay tuned for more fun games")      
+            .create(); 
+ 
+        System.out.println(message.getSid()); 
        }
     }
 

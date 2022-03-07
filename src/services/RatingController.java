@@ -23,12 +23,11 @@ public class RatingController {
     public RatingController() {
         MCN= MaConnexion.instconn().getcnx();
     }
-    public void ajouterGame(Ratingsystem g) {
+    public void ajouterRate(Ratingsystem g) {
         try {
-            String requete = "INSERT INTO ratingsystem (stars,comments) VALUES (?,?)";
+            String requete = "INSERT INTO ratingsystem (stars) VALUES (?)";
             PreparedStatement ste = MCN.prepareStatement(requete);
             ste.setInt(1, g.getStars());
-            ste.setString(2, g.getComments());
             
             ste.executeUpdate();
             System.out.println("Game is rated!");
@@ -47,7 +46,6 @@ public class RatingController {
             while(rs.next()){
                 Ratingsystem g = new Ratingsystem();
                 g.setStars(rs.getInt("Stars"));
-                g.setComments(rs.getString("category"));
                 Rate.add(g);
             }
         } catch (SQLException ex) {

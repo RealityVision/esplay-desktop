@@ -5,51 +5,45 @@
  */
 package GUI;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
  *
  * @author khaled
  */
-public class MsgController implements Initializable {
 
-   
+public class OutmsgfileController implements Initializable {
+
     @FXML
-    private ImageView image_msg;
-    @FXML
-    private Label text_ms;
-    @FXML
-    private Label label_username;
-    @FXML
-    private Label label_time;
+    private ImageView msg_image;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }    
-    public void setData(String txt,String username,Timestamp date){
-         text_ms.setText(txt);
-  
-        label_username.setText(username);
-    
-    
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String strDate = dateFormat.format(date);
-        label_time.setText(strDate);
+    public void setData(String file) throws FileNotFoundException{
+        
+   InputStream input = new FileInputStream(file);
+        System.out.println(input +"hneee fl fct ");
+        Image image = new Image(input);
+        
+        msg_image.setImage(image);
     
     }
+    
 }

@@ -61,7 +61,7 @@ public class ChatService {
             ps.setString(5,c.getFile());
             ps.executeUpdate();
             
-            System.out.println("message envoyé avec succée");
+            System.out.println("file envoyé avec succée");
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -100,7 +100,7 @@ public class ChatService {
              c.setMessage(rs.getString("message"));
              c.setDate_message(rs.getTimestamp("date_message"));
              c.setPicture(rs.getString("picture"));
-             
+             c.setFile(rs.getString("file"));
             chat.add(c);
             
             }

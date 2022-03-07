@@ -26,17 +26,17 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <HBox prefHeight="13.0" prefWidth="155.0">
+            <HBox prefHeight="13.0" prefWidth="224.0">
                <children>
-                  <Label fx:id="label_username" contentDisplay="RIGHT" text="khaledmihoub">
+                  <Label fx:id="label_username" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="12.0" prefWidth="68.0" text="khaledmihoub">
                      <font>
-                        <Font size="8.0" />
+                        <Font name="System Bold Italic" size="8.0" />
                      </font>
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="label_time" text="20-10-2022" wrapText="true">
+                  <Label fx:id="label_time" alignment="TOP_RIGHT" prefHeight="12.0" prefWidth="89.0" text="20-10-2022" wrapText="true">
                      <font>
                         <Font size="8.0" />
                      </font>

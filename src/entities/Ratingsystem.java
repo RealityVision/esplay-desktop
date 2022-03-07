@@ -19,7 +19,6 @@ public class Ratingsystem  {
     
     private int stars;
     
-    private String comments;
 
     public Ratingsystem() {
     }
@@ -31,7 +30,6 @@ public class Ratingsystem  {
     public Ratingsystem(Integer idRate, int stars, String comments) {
         this.idRate = idRate;
         this.stars = stars;
-        this.comments = comments;
     }
 
     public Integer getIdRate() {
@@ -50,13 +48,6 @@ public class Ratingsystem  {
         this.stars = stars;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
 
     @Override
     public int hashCode() {
