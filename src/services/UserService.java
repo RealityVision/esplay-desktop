@@ -201,6 +201,23 @@ public class UserService {
         }
     
     }
+      public void UpdateUserpassword(User u){
+      String sql ="UPDATE `user` SET `password` = ?,`salt` = ?   WHERE `user`.`id_user` = ?;";
+      
+        try {
+            ps= mc.prepareStatement(sql);
+           
+            ps.setString(1, u.getPassword());
+            ps.setString(2, u.getSalt());
+            ps.setInt(3, u.getId_user());
+            
+            ps.executeUpdate();
+            System.out.println("mot de passe modifier avec succés");
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+    
+    }
      public void UpdateUserAdmin(User u){
       String sql ="UPDATE `user` SET `username` = ?, `first_name` = ?, `last_name` = ?, `phone` = ?, "
               + "`email` = ?, `password` = ?,`salt` = ?, `country` = ?, `birth_date` = ?, `address` = ?,"

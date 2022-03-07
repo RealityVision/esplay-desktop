@@ -42,9 +42,9 @@ public class MsgController implements Initializable {
         // TODO
     }    
     public void setData(String txt,String username,Timestamp date){
-   text_ms.setText(txt);
+         text_ms.setText(txt);
   
-    label_username.setText(username);
+        label_username.setText(username);
     
     
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");

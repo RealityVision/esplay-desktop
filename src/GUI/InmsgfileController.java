@@ -5,13 +5,8 @@
  */
 package GUI;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,9 +18,12 @@ import javafx.scene.image.ImageView;
  *
  * @author khaled
  */
+public class InmsgfileController implements Initializable {
 
-public class OutmsgfileController implements Initializable {
-
+    
+    
+    @FXML
+    private ImageView image_msg;
     @FXML
     private ImageView msg_image;
 
@@ -34,11 +32,11 @@ public class OutmsgfileController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }    
-    public void setData(String file) throws FileNotFoundException{
+    public void setData(String file){
         
-   InputStream input = new FileInputStream(file);
+   InputStream input = OutmsgfileController.class.getResourceAsStream(file);
         System.out.println(input +"hneee fl fct ");
         Image image = new Image(input);
         

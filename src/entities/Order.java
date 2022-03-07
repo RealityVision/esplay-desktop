@@ -5,136 +5,74 @@
  */
 package entities;
 
-import java.sql.Date;
-
 /**
  *
  * @author slimd
  */
 public class Order {
-    private int orderId;
-    private Date orderDate;
-    private User client;
-    private Product product;
-    private String etat;
-    private float priceProduit;
-    private String productName;
-    
-    public Order(int orderId, Date orderDate, User client, String etat) {
-        this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.client = client;
-        this.etat = etat;
+  private int idCommandeProduit;
+    private int idproduit;
+    private int idAcheteur;
+    private int quantiteCommandeProduit;
+
+   
+     public Order(int idAcheteur,int idproduit, int quantiteCommandeProduit) {
+        this.idproduit = idproduit;
+        this.idAcheteur = idAcheteur;
+        this.quantiteCommandeProduit = quantiteCommandeProduit;
+    }
+      public Order(int idproduit, int quantiteCommandeProduit) {
+        this.idproduit = idproduit;
+       // this.idAcheteur = idAcheteur;
+        this.quantiteCommandeProduit = quantiteCommandeProduit;
     }
 
-    
-    
-    public Order(int orderId, Date orderDate, User client, Product product, String etat, float priceProduit, String productName) {
-        this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.client = client;
-        this.product = product;
-        this.etat = etat;
-        this.priceProduit = product.getPrix();
-        this.productName = product.getDescription();
+    public int getIdCommandeProduit() {
+        return idCommandeProduit;
     }
 
-    public Order(int orderId, Date orderDate, Product product, String etat) {
-        this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.product = product;
-        this.etat = etat;
+    public void setIdCommandeProduit(int idCommandeProduit) {
+        this.idCommandeProduit = idCommandeProduit;
     }
 
-    public Order(int orderId, Date orderDate, String etat) {
-        this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.etat = etat;
-    }
-    
-    
-
-    public int getOrderId() {
-        return orderId;
+    public int getIdproduit() {
+        return idproduit;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setIdproduit(int idproduit) {
+        this.idproduit = idproduit;
+    }
+     public int getId_user() {
+        return idAcheteur;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public void setId_user(int id_user) {
+        this.idAcheteur = id_user;
+    }
+    public int getIdAcheteur() {
+        return idAcheteur;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setIdAcheteur(int idAcheteur) {
+        this.idAcheteur = idAcheteur;
     }
 
-    public User getClient() {
-        return client;
+    public int getQuantiteCommandeProduit() {
+        return quantiteCommandeProduit;
     }
 
-    public void setClient(User client) {
-        this.client = client;
+    public void setQuantiteCommandeProduit(int quantiteCommandeProduit) {
+        this.quantiteCommandeProduit = quantiteCommandeProduit;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-        this.priceProduit = product.getPrix();
-        this.productName = product.getDescription();
-    }
-
-    public String getEtat() {
-        return etat;
-    }
-
-    public void setEtat(String etat) {
-        this.etat = etat;
-    }
-
-    public float getPriceProduit() {
-        return priceProduit;
-    }
-
-    public void setPriceProduit(float priceProduit) {
-        this.priceProduit = priceProduit;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
+  
 
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", client=" + client + ", product=" + product + ", etat=" + etat + ", priceProduit=" + priceProduit + ", productName=" + productName + '}';
+        return "Commande{" + "idCommandeProduit=" + idCommandeProduit + ", idproduit=" + idproduit + ", idAcheteur=" + idAcheteur + ", quantiteCommandeProduit=" + quantiteCommandeProduit + '}';
     }
 
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Order other = (Order) obj;
-        if (this.orderId != other.orderId) {
-            return false;
-        }
-        return true;
-    }
     
     
 }
+

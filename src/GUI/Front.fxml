@@ -1,51 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontController">
-   <children>
-      <AnchorPane layoutX="-16.0" prefHeight="604.0" prefWidth="1152.0" style="-fx-background-color: #23262F;">
+<AnchorPane id="AnchorPane" prefHeight="695.0" prefWidth="1177.0" style="-fx-background-color: #141416;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontController">
+   
          <children>
-            <TableView fx:id="listProd" layoutX="243.0" layoutY="92.0" prefHeight="442.0" prefWidth="649.0" style="-fx-background-color: #4d5f75; -fx-border-color: #4d5f75; -fx-background-radius: 15;" stylesheets="@custom.css">
-               <columns>
-                  <TableColumn fx:id="idprodcol" minWidth="0.0" prefWidth="0.0" text="id" />
-                  <TableColumn fx:id="nomprodcol" prefWidth="83.0" text="      nom" />
-                  <TableColumn fx:id="descprodcol" prefWidth="145.0" text="description" />
-                  <TableColumn fx:id="categorieprodcol" prefWidth="143.0" text="categorie" />
-                  <TableColumn fx:id="dateprodcol" minWidth="0.0" prefWidth="0.0" text="date" />
-                  <TableColumn fx:id="prixaprodscol" prefWidth="51.0" text="prix" />
-                  <TableColumn fx:id="img" prefWidth="150.0" text="image" />
-               </columns>
-            </TableView>
-            <Text fill="WHITE" layoutX="277.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Produits">
+            <Text fill="WHITE" layoutX="331.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store :">
                <font>
                   <Font name="Century Gothic" size="25.0" />
                </font>
             </Text>
-            <Button layoutX="900.0" layoutY="137.0" mnemonicParsing="false" onAction="#handlebuttonAction" prefHeight="31.0" prefWidth="214.0" style="-fx-background-color: #ffb638;" text="Achat">
+            <ScrollPane layoutX="379.0" layoutY="102.0" prefHeight="512.0" prefWidth="649.0" style="-fx-background-color: #141416;" stylesheets="@../Css/HomeCSS.css">
+               <content>
+                  <VBox fx:id="vbox_Prod" prefHeight="723.0" prefWidth="630.0" style="-fx-background-color: #4d5f75;" />
+               </content>
+            </ScrollPane>
+            <Button fx:id="btn_support" layoutX="961.0" layoutY="645.0" mnemonicParsing="false" onAction="#support" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #3EB7E5; -fx-background-radius: 15;" text="Support" textFill="WHITE">
                <font>
-                  <Font size="23.0" />
-               </font></Button>
-            <TextField fx:id="id" layoutX="965.0" layoutY="99.0" />
-            <Label layoutX="902.0" layoutY="96.0" prefHeight="31.0" prefWidth="63.0" text="Nom" textFill="WHITE">
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Button>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="695.0" prefWidth="276.0" style="-fx-background-color: #141416;">
+         <children>
+            <Pane prefHeight="151.0" prefWidth="276.0">
+               <children>
+                  <ImageView fitHeight="134.0" fitWidth="136.0" layoutX="71.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/logoesplay.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#toHome" prefHeight="34.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Play" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" size="15" text="" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
                <font>
-                  <Font size="13.0" />
-               </font></Label>
-            <ImageView fitHeight="198.0" fitWidth="215.0" layoutX="30.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/logoesplay.png" />
-               </image>
-            </ImageView>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="11.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Recommended Games" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="ADN" size="15" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#toStore" prefHeight="0.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Store" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="USD" size="15" text="" />
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#logout" prefHeight="61.0" prefWidth="276.0" stylesheets="@../Css/HomeCSS.css" text="Log out" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
          </children>
-      </AnchorPane>
-   </children>
+      </VBox>
+      <HBox layoutX="916.0" prefHeight="70.0" prefWidth="265.0" style="-fx-background-color: #141416;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Onclick_profil" prefHeight="47.0" prefWidth="265.0" style="-fx-background-color: #23262F;" text="Profil" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/avatar1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+        
+          </children>
 </AnchorPane>

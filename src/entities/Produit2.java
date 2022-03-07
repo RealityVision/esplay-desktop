@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author slimd
  */
 public class Produit2 {
-    public static String pathfile; 
+    public static String file; 
     public static String filename="";
     private int idp2;
     private String nom;
@@ -23,6 +23,13 @@ public class Produit2 {
     private String image;
     private int prix;
  
+    
+    
+        public static int id_pModifier;
+        private int stockProduit;
+
+   
+  
     public Produit2() {
     }
 
@@ -32,18 +39,53 @@ public class Produit2 {
         this.description = description;
         this.categorie = categorie;
         this.date = date;
-        this.image = image;
+      
         this.prix = prix;
+        this.image= image;
     }
 
-    public Produit2(String nom, String description, String categorie, Date date, String image, int prix) {
+    public Produit2(String nom, String description, String categorie, Date date, String image, int prix,String file) {
+        this.nom = nom;
+        this.description = description;
+        this.categorie = categorie;
+        this.date = date;
+        
+        this.prix = prix;
+        this.image=file;
+    }
+    public Produit2(String nom, String description, String categorie, Date date, String image, int prix,int stockProduit,String file) {
+        this.nom = nom;
+        this.description = description;
+        this.categorie = categorie;
+        this.date = date;
+         this.stockProduit = stockProduit;
+        this.prix = prix;
+        this.image=file;
+    }
+
+    public Produit2(int idp2, String nom, String description, String categorie, Date date, String image, int prix, int stockProduit) {
+        this.idp2 = idp2;
         this.nom = nom;
         this.description = description;
         this.categorie = categorie;
         this.date = date;
         this.image = image;
         this.prix = prix;
+        this.stockProduit = stockProduit;
     }
+
+    public Produit2(String nom, String description, String categorie, Date date, String image, int prix, int stockProduit) {
+        this.nom = nom;
+        this.description = description;
+        this.categorie = categorie;
+        this.date = date;
+        this.image = image;
+        this.prix = prix;
+        this.stockProduit = stockProduit;
+    }
+
+  
+  
 
     public int getIdp2() {
         return idp2;
@@ -101,16 +143,49 @@ public class Produit2 {
         this.prix = prix;
     }
 
+    public static String getPathfile() {
+        return file;
+    }
+
+    public static void setPathfile(String pathfile) {
+        Produit2.file = file;
+    }
+
+    public static String getFilename() {
+        return filename;
+    }
+
+    public static void setFilename(String filename) {
+        Produit2.filename = filename;
+    }
+
+    public static int getId_pModifier() {
+        return id_pModifier;
+    }
+
+    public static void setId_pModifier(int id_pModifier) {
+        Produit2.id_pModifier = id_pModifier;
+    }
+
+    public int getStockProduit() {
+        return stockProduit;
+    }
+
+    public void setStockProduit(int stockProduit) {
+        this.stockProduit = stockProduit;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + this.idp2;
-        hash = 97 * hash + Objects.hashCode(this.nom);
-        hash = 97 * hash + Objects.hashCode(this.description);
-        hash = 97 * hash + Objects.hashCode(this.categorie);
-        hash = 97 * hash + Objects.hashCode(this.date);
-        hash = 97 * hash + Objects.hashCode(this.image);
-        hash = 97 * hash + this.prix;
+        hash = 73 * hash + this.idp2;
+        hash = 73 * hash + Objects.hashCode(this.nom);
+        hash = 73 * hash + Objects.hashCode(this.description);
+        hash = 73 * hash + Objects.hashCode(this.categorie);
+        hash = 73 * hash + Objects.hashCode(this.date);
+        hash = 73 * hash + Objects.hashCode(this.image);
+        hash = 73 * hash + this.prix;
+        hash = 73 * hash + this.stockProduit;
         return hash;
     }
 
@@ -132,6 +207,9 @@ public class Produit2 {
         if (this.prix != other.prix) {
             return false;
         }
+        if (this.stockProduit != other.stockProduit) {
+            return false;
+        }
         if (!Objects.equals(this.nom, other.nom)) {
             return false;
         }
@@ -141,18 +219,21 @@ public class Produit2 {
         if (!Objects.equals(this.categorie, other.categorie)) {
             return false;
         }
-        if (!Objects.equals(this.date, other.date)) {
+        if (!Objects.equals(this.image, other.image)) {
             return false;
         }
-        if (!Objects.equals(this.image, other.image)) {
+        if (!Objects.equals(this.date, other.date)) {
             return false;
         }
         return true;
     }
 
-    public String nomProduit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+   @Override
+    public String toString() {
+        return "Produit2{" + "idp2=" + idp2 + ", nom=" + nom + ", description=" + description + ", categorie=" + categorie + ", date=" + date + ", image=" + image + ", prix=" + prix + ", stockProduit=" + stockProduit + '}';
     }
+
 
     
     

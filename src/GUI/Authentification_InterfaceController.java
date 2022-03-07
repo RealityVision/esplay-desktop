@@ -9,6 +9,8 @@ import entities.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javax.mail.MessagingException;
 import services.AuthService;
+import services.MailUtils;
 import services.UserService;
 
 /**
@@ -54,6 +58,8 @@ public class Authentification_InterfaceController implements Initializable {
     private Label TextField_msg;
     @FXML
     private Label contol_msg;
+    @FXML
+    private Button btn_pass;
     /**
      * Initializes the controller class.
      */
@@ -75,11 +81,7 @@ public class Authentification_InterfaceController implements Initializable {
       textField_warning.setText("The Login and password fields are required! ");
       
       }
-          
-          
-          
-          
-        
+   
        else {
                 
                 
@@ -94,7 +96,7 @@ public class Authentification_InterfaceController implements Initializable {
                         System.out.println(u.getRole());
                         if(u.getRole().equals("admin")) {
 
-                              FXMLLoader loder = new FXMLLoader(getClass().getResource("Admin_user.fxml"));
+                              FXMLLoader loder = new FXMLLoader(getClass().getResource("Dashboard_Admin.fxml"));
                               try {
                                   Parent root = loder.load();
                                   btn_login.getScene().setRoot(root);
@@ -145,41 +147,55 @@ public class Authentification_InterfaceController implements Initializable {
            alert.setContentText("Please fill all DATA");
            alert.showAndWait();
        } else if (Username.length()<4){
-           
-       contol_msg.setText("*Username must have at least 4 characters ");
-       
-       
-       }else if (email.length()<4 || !email.contains("@") || !email.contains(".")){
-           
-       contol_msg.setText("*Email is not valid ");
-       
-       
-       }
-       else if (password.length()<6){
-           
-       contol_msg.setText("*Password must have at least 6 characters ");
-       
-       
-       }
-         
-         
-         
-         
-         
+
+            contol_msg.setText("*Username must have at least 4 characters ");
+
+
+            }else if (email.length()<4 || !email.contains("@") || !email.contains(".")){
+
+            contol_msg.setText("*Email is not valid ");
+
+            }
+            else if (password.length()<6){
+
+            contol_msg.setText("*Password must have at least 6 characters ");
+
+            }
+
          else{
-       User u = new User(Username,FirstName,LastName,email,password);
-       UserService us = new UserService();
-       us.CreateUser(u);
-       
-       input_Username.setText(null);
-       Input_Name.setText(null);
-       input_LastName.setText(null);
-       input_Email.setText(null);
-       input_Password.setText(null);
-       
-       contol_msg.setText(null);
-       TextField_msg.setText("Account created");
+           try {
+               User u = new User(Username,FirstName,LastName,email,password);
+               UserService us = new UserService();
+               us.CreateUser(u);
+               
+               MailUtils.SendMail(email, Username);
+               
+               
+               input_Username.setText(null);
+               Input_Name.setText(null);
+               input_LastName.setText(null);
+               input_Email.setText(null);
+               input_Password.setText(null);
+               
+               contol_msg.setText(null);
+               TextField_msg.setText("Account created");
+           } catch (MessagingException ex) {
+               Logger.getLogger(Authentification_InterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+           }
        
     }
     }
+
+    @FXML
+    private void Onclick_ForgotPassword(ActionEvent event) {
+         FXMLLoader loder = new FXMLLoader(getClass().getResource("UserForgotpass.fxml"));
+                              try {
+                                  Parent root = loder.load();
+                                  btn_login.getScene().setRoot(root);
+                              } catch (IOException ex) {
+                                  System.out.println(ex.getMessage());
+                              }
+    }
+    
+    
 }

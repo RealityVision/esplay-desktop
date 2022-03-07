@@ -6,7 +6,9 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -150,23 +152,26 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="404.0">
                      <children>
-                        <TextField fx:id="input_Gender" alignment="CENTER" prefHeight="82.0" prefWidth="367.0" promptText="Gender">
-                           <effect>
-                              <Glow />
-                           </effect>
+                        <Label fx:id="label_gender" prefHeight="21.0" prefWidth="191.0" text="Your Gender is:" textFill="WHITE" />
+                        <RadioButton fx:id="RadioButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getGender" text="Female" textFill="WHITE">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets left="50.0" />
                            </HBox.margin>
-                           <styleClass>
-                              <String fx:value="transparent" />
-                              <String fx:value="input" />
-                              <String fx:value="texxt" />
-                           </styleClass>
-                        </TextField>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="Radiobutton2" mnemonicParsing="false" onAction="#getGender" text="Male" textFill="WHITE" toggleGroup="$gender">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </RadioButton>
                      </children>
-                  </HBox>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></HBox>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
                      <children>
                         <DatePicker fx:id="input_Birthdate" opacity="0.47" prefHeight="32.0" prefWidth="377.0" promptText="birhdate">
@@ -175,16 +180,18 @@
                               <String fx:value="texxt" />
                               <String fx:value="input" />
                            </styleClass>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
                         </DatePicker>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="TextField_NPswd" opacity="0.0" />
-                     </children></HBox>
-                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
-                     <children>
-                        <ChoiceBox fx:id="rolebox" prefWidth="150.0" style="-fx-background-color: #434040; -fx-text-fill: white;" />
+                        <ChoiceBox fx:id="rolebox" prefWidth="150.0" style="-fx-background-color: #434040; -fx-text-fill: white;">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin></ChoiceBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
