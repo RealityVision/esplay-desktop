@@ -6,9 +6,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -155,19 +153,7 @@
                   <HBox alignment="CENTER" prefHeight="43.0" prefWidth="404.0">
                      <children>
                         <Label fx:id="label_gender" prefHeight="21.0" prefWidth="191.0" text="Your Gender is:" textFill="WHITE" />
-                        <RadioButton fx:id="RadioButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#getGender" text="Female" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                           <toggleGroup>
-                              <ToggleGroup fx:id="gender" />
-                           </toggleGroup>
-                        </RadioButton>
-                        <RadioButton fx:id="Radiobutton2" mnemonicParsing="false" onAction="#getGender" text="Male" textFill="WHITE" toggleGroup="$gender">
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                        </RadioButton>
+                        <ChoiceBox fx:id="genderbox" prefWidth="150.0" style="-fx-background-color: #434040; -fx-text-fill: white;" />
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />
@@ -184,6 +170,11 @@
                               <Insets top="10.0" />
                            </HBox.margin>
                         </DatePicker>
+                        <Label text="*" textFill="#f50000">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
@@ -192,6 +183,11 @@
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin></ChoiceBox>
+                        <Label text="*" textFill="#f50000">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">

@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -34,6 +35,9 @@ public class HomeFXMain extends Application {
             Scene scene = new Scene(root);
             
             primaryStage.setScene(scene);
+                Image image=new Image("/assets/logoesplay.png");
+            primaryStage.getIcons().add(image);
+            primaryStage.setTitle("ESPLAY");
             primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeFXMain.class.getName()).log(Level.SEVERE, null, ex);

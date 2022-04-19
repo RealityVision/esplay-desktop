@@ -63,7 +63,11 @@ public class GameItemController implements Initializable {
     public void setData(String label, String description, Double rate, int ratenbr, String Gameimage) throws FileNotFoundException {
         game_label.setText(label);
         game_dscr.setText(description);
-        rate_game.setText(Double.toString(round((rate/ratenbr))));
+        double val = rate/ratenbr;
+val = val*100;
+val = (double)((int) val);
+val = val /100;
+        rate_game.setText(Double.toString(val));
         InputStream input = new FileInputStream(Gameimage);
         System.out.println(input + "hneee fl fct ");
         Image image = new Image(input);

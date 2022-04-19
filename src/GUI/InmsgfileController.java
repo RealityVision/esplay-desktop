@@ -5,9 +5,14 @@
  */
 package GUI;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -36,11 +41,21 @@ public class InmsgfileController implements Initializable {
     }    
     public void setData(String file){
         
-   InputStream input = OutmsgfileController.class.getResourceAsStream(file);
-        System.out.println(input +"hneee fl fct ");
-        Image image = new Image(input);
-        
-        msg_image.setImage(image);
+     InputStream input = null;
+        try {
+            input = new FileInputStream(file);
+            System.out.println(input +"hneee fl fct ");
+            Image image = new Image(input);
+            msg_image.setImage(image);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(InmsgfileController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                input.close();
+            } catch (IOException ex) {
+                Logger.getLogger(InmsgfileController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     
     }
     

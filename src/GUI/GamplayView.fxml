@@ -177,129 +177,6 @@
             <HBox alignment="BOTTOM_LEFT" prefHeight="139.0" prefWidth="637.0" />
          </children>
       </VBox>
-      <VBox layoutX="912.0" layoutY="99.0" prefHeight="596.0" prefWidth="265.0" style="-fx-background-color: #141416;">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="265.0" style="-fx-background-color: #23262F;" text="Esplay Community" textFill="WHITE">
-               <graphic>
-                  <FontAwesomeIcon fill="#fffefe" iconName="GROUP" />
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <ScrollPane prefHeight="493.0" prefWidth="252.0" style="-fx-background-color: #141416;" stylesheets="@../Css/HomeCSS.css">
-               <content>
-                  <VBox prefHeight="616.0" prefWidth="250.0" style="-fx-background-color: #ECECEC;">
-                     <children>
-                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false">
-                           <children>
-                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/avatar1.png" />
-                                 </image>
-                              </ImageView>
-                              <Label alignment="CENTER" prefHeight="36.0" prefWidth="135.0" styleClass="upbubble" stylesheets="@../Css/HomeCSS.css" text="salut tout le monde" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="267.0" scaleShape="false">
-                           <children>
-                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/avatar2.png" />
-                                 </image>
-                              </ImageView>
-                              <Label alignment="CENTER" minWidth="-Infinity" prefHeight="36.0" styleClass="outbubble" stylesheets="@../Css/HomeCSS.css" text="HIII!!!" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="267.0" scaleShape="false">
-                           <children>
-                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/avatar1.png" />
-                                 </image>
-                              </ImageView>
-                              <Label alignment="CENTER" prefHeight="36.0" prefWidth="135.0" styleClass="upbubble" stylesheets="@../Css/HomeCSS.css" text="Envoi moi la photo SVP" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox maxHeight="300.0" nodeOrientation="RIGHT_TO_LEFT" scaleShape="false">
-                           <children>
-                              <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/avatar2.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <Label alignment="CENTER" minWidth="-Infinity" prefHeight="200.0" prefWidth="208.0" styleClass="outbubble" stylesheets="@../Css/HomeCSS.css" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="195.0" fitWidth="150.0">
-                                 <image>
-                                    <Image url="@../assets/Ourgame3.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </VBox>
-               </content>
-            </ScrollPane>
-            <Pane prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #4a4947;">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <children>
-                  <Button id="h1" layoutX="225.0" layoutY="2.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="43.0" style="-fx-background-color: #4a4947;" textAlignment="CENTER">
-                     <graphic>
-                        <ImageView fitHeight="38.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;">
-                           <image>
-                              <Image url="@../assets/send1.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <effect>
-                        <SepiaTone level="0.0" />
-                     </effect>
-                  </Button>
-                  <TextField layoutX="30.0" prefHeight="48.0" prefWidth="200.0" promptText="Type your message here.." style="-fx-background-color: #4a4947; -fx-text-inner-color: white;" />
-                  <Button layoutX="4.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-radius: 80; -fx-background-color: #3EB7E5;">
-                     <graphic>
-                        <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
-                     </graphic>
-                  </Button>
-               </children>
-            </Pane>
-         </children>
-      </VBox>
       <HBox layoutX="913.0" prefHeight="100.0" prefWidth="265.0" style="-fx-background-color: #141416;">
          <children>
             <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="265.0" style="-fx-background-color: #23262F;" text="Username" textFill="WHITE">
@@ -311,5 +188,54 @@
                   </ImageView>
                </graphic></Button>
          </children></HBox>
+      <VBox layoutX="913.0" layoutY="99.0" prefHeight="596.0" prefWidth="265.0" style="-fx-background-color: #141416;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="265.0" style="-fx-background-color: #23262F;" text="Esplay Community" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="#fffefe" iconName="GROUP" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ScrollPane prefHeight="493.0" prefWidth="252.0" style="-fx-background-color: #141416;" stylesheets="@../Css/HomeCSS.css">
+               <content>
+                  <VBox fx:id="vbox_chat" prefHeight="560.0" prefWidth="250.0" style="-fx-background-color: #ECECEC;">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Pane prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #4a4947;">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <Button id="h1" fx:id="btn_send_message" layoutX="225.0" layoutY="2.0" mnemonicParsing="false" onAction="#send_message" prefHeight="41.0" prefWidth="43.0" style="-fx-background-color: #4a4947;" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;">
+                           <image>
+                              <Image url="@../assets/send1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <effect>
+                        <SepiaTone level="0.0" />
+                     </effect>
+                  </Button>
+                  <TextField fx:id="textfield_message" layoutX="30.0" prefHeight="48.0" prefWidth="200.0" promptText="Type your message here.." style="-fx-background-color: #4a4947; -fx-text-inner-color: white;" />
+                  <Button alignment="CENTER" layoutX="3.0" layoutY="14.0" mnemonicParsing="false" onAction="#btn_sendfile" prefHeight="25.0" prefWidth="28.0" style="-fx-background-radius: 80; -fx-background-color: #3EB7E5;">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                     </graphic>
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

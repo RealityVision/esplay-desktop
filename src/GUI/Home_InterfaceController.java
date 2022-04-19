@@ -65,11 +65,11 @@ public class Home_InterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ChatService cv= new ChatService();
         List<Chat> chats = cv.ReadChat();
-        System.out.println(chats.toString());
+     
         refresh(chats);
            
         Notifications notif=Notifications.create()
-        .title("Esplay Gaming").text("welcome again!").graphic(null);
+        .title("Esplay Gaming").text("Welcome again!").graphic(null);
         notif.darkStyle();
         notif.show();
         GameService gs = new GameService();
@@ -151,7 +151,7 @@ public class Home_InterfaceController implements Initializable {
                  
                  
                  
-                 }
+                 }else { vbox_chat.getChildren().clear();}
              }
         
     

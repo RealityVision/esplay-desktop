@@ -175,5 +175,16 @@ private void refresh(){
                      System.out.println(ex.getMessage());
                  }
     }
+
+    @FXML
+    private void Onclick_ADDGAME(ActionEvent event) {
+        FXMLLoader loder = new FXMLLoader(getClass().getResource("DeveloperHub.fxml"));
+                 try {
+                     Parent root = loder.load();
+                     TextField_Emails.getScene().setRoot(root);
+                 } catch (IOException ex) {
+                     System.out.println(ex.getMessage());
+                 }
+    }
     
 }
