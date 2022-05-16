@@ -89,11 +89,11 @@ public class Addproduit2Controller implements Initializable {
     @FXML
     private ComboBox<String> produit2Categorie;
              ObservableList<String> options = FXCollections.observableArrayList(
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
+                "GAMES",
+                "CARTS",
+                "PSN",
+                "arcade",
+                "RP"
         );
           ;
     
@@ -405,19 +405,23 @@ private void btn_sendfile(ActionEvent event) {
         
         File source = null;
         File destination = null;
-     
+        File destination2 = null;
   
         String ext = f.getAbsolutePath().substring(f.getAbsolutePath().lastIndexOf('.') +1);
         String namefile = getRandomStr();
+        
         destination = new File (newpath+namefile+'.'+ext);
-     
+        destination2 = new File ("C:\\esplay-web-pidev-Nada-branch\\public\\images\\produits\\"+namefile+'.'+ext);
+        
         source =new File(f.getAbsolutePath());
         try {
+            
             Files.copy(source.toPath(), destination.toPath());  // yemchi yhotha fl wamp 
-           
+            Files.copy(source.toPath(), destination2.toPath());
+            
             ProduitService2 ps = new ProduitService2();
              String  file = newpath +namefile+'.'+ext;
-             btn_sendfile.setText(file);
+             btn_sendfile.setText(namefile+'.'+ext);
            // Produit2 p = new Produit2();
            //s ps.ajouterProduit2Pst(p);
  

@@ -43,8 +43,9 @@ public class InmsgfileController implements Initializable {
         
      InputStream input = null;
         try {
+            
             input = new FileInputStream(file);
-            System.out.println(input +"hneee fl fct ");
+            System.out.println(input +"hneee fl fct in msg file ");
             Image image = new Image(input);
             msg_image.setImage(image);
         } catch (FileNotFoundException ex) {

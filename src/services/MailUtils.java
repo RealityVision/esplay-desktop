@@ -40,8 +40,8 @@ public class MailUtils {
         pr.put("mail.smtp.host","smtp.gmail.com");
         pr.put("mail.smtp.port","587");
         
-        String email = "realityvisionisamm@gmail.com";
-        String pass = "p4Q7Pr$GrRJG6Y9D";
+        String email = "realityvison.pidev@gmail.com";
+        String pass = "pidev2022*-ESPRIT-";
         
           Session session  = Session.getInstance(pr, new Authenticator() {
             @Override

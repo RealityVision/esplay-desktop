@@ -55,7 +55,7 @@ public class ModelproduitController implements Initializable {
    label_desc11.setText(desc);
    label_prix11.setText(prix);
    
-    InputStream input = new FileInputStream(file);
+    InputStream input = new FileInputStream("C:\\wamp64\\www\\"+file);
         System.out.println(input +"hneee fl fct ");
         Image image = new Image(input);
         

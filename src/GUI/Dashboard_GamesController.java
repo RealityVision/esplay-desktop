@@ -308,16 +308,18 @@ private  Timestamp timee;
             
             File source = null;
             File destination = null;
-            
+            File destination2 = null;
             
             String ext = f.getAbsolutePath().substring(f.getAbsolutePath().lastIndexOf('.') +1);
             String namefile = getRandomStr();
             
             destination = new File (newpath+namefile+'.'+ext);
+             destination2 = new File ("C:\\esplay-web-pidev-Nada-branch\\public\\images\\produits\\"+namefile+'.'+ext);
             source =new File(f.getAbsolutePath());
             String file = newpath+namefile+'.'+ext;
             Files.copy(source.toPath(), destination.toPath());
-            upload_btn1.setText(file);
+             Files.copy(source.toPath(), destination2.toPath());
+            upload_btn1.setText(namefile+'.'+ext);
         } catch (IOException ex) {
             Logger.getLogger(Dashboard_GamesController.class.getName()).log(Level.SEVERE, null, ex);
         }

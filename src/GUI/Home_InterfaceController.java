@@ -121,7 +121,7 @@ public class Home_InterfaceController implements Initializable {
                      } catch (IOException ex) {
                          Logger.getLogger(Home_InterfaceController.class.getName()).log(Level.SEVERE, null, ex);
                      }
-           }else if (c.get(i).getMessage()== null && c.get(i).getId_user()==Authentification_InterfaceController.ID){
+           }else if (c.get(i).getMessage() == null && c.get(i).getId_user()==Authentification_InterfaceController.ID){
                      try {
                          System.out.println("null message");
                          System.out.println(c.get(i).getFile());
@@ -129,7 +129,7 @@ public class Home_InterfaceController implements Initializable {
                          fxl.setLocation(getClass().getResource("outmsgfile.fxml"));
                          HBox msgg = fxl.load();
                          OutmsgfileController mc = fxl.getController();
-                         System.out.println(c.get(i).getFile()+ "  kbal fnc");
+                         System.out.println(c.get(i).getFile()+ "  kbal fnc out msg" + c.get(i).getId_message());
                          mc.setData(c.get(i).getFile()) ;
                          vbox_chat.getChildren().add(msgg);
                      } catch (IOException ex) {
@@ -142,7 +142,7 @@ public class Home_InterfaceController implements Initializable {
                          fxl.setLocation(getClass().getResource("inmsgfile.fxml"));
                          HBox msgg = fxl.load();
                          InmsgfileController mc = fxl.getController();
-                         System.out.println(c.get(i).getFile()+ "  kbal fnc");
+                         System.out.println(c.get(i).getFile()+ "  kbal fnc in msg");
                          mc.setData(c.get(i).getFile()) ;
                          vbox_chat.getChildren().add(msgg);
                      } catch (IOException ex) {
@@ -167,7 +167,7 @@ public class Home_InterfaceController implements Initializable {
         fileChooser.setTitle("Open Resource File");
         
         File f = fileChooser.showOpenDialog(null);
-        System.out.println(f);
+       
         
         String newpath = "D:\\wamp64\\www\\";
         File dir = new File(newpath);
@@ -178,16 +178,21 @@ public class Home_InterfaceController implements Initializable {
         
         File source = null;
         File destination = null;
-     
+        File destination2 = null;
   
         String ext = f.getAbsolutePath().substring(f.getAbsolutePath().lastIndexOf('.') +1);
         String namefile = getRandomStr();
+        
         destination = new File (newpath+namefile+'.'+ext);
-     
+        destination2 = new File ("C:\\esplay-web-pidev-Nada-branch\\public\\images\\produits\\"+namefile+'.'+ext);
+         System.out.println(destination.toPath()+"-----------------");
+         System.out.println(destination2.toPath()+"----------------");
+         System.out.println(destination2.toPath());
+        
         source =new File(f.getAbsolutePath());
         try {
             Files.copy(source.toPath(), destination.toPath());
-           
+            Files.copy(source.toPath(), destination2.toPath());
             ChatService cs = new ChatService();
              String  file = newpath +namefile+'.'+ext;
              Chat c = new Chat (Authentification_InterfaceController.ID,file,null);

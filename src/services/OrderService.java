@@ -35,14 +35,14 @@ public class OrderService {
  public void CreateProduitsCommand(Order c) throws SQLException {
      
  try {
-            String req = "insert into commandeprod (id_acheteur,quantite,id_produit) values(1,?,?)";
+            String req = "insert into commandeprod (id_acheteur,quantite,id_produit) values(?,?,?)";
 
   
      
              pst = MCN.prepareStatement(req);
-       
-            pst.setInt(1, c.getQuantiteCommandeProduit());
-            pst.setInt(2,c.getIdproduit());
+         pst.setInt(1, c.getId_user());
+            pst.setInt(2, c.getQuantiteCommandeProduit());
+            pst.setInt(3,c.getIdproduit());
             
             
 

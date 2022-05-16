@@ -90,6 +90,7 @@ refresh(as.readAll());
                 HBox HbProd = fxl.load();
                 ModelproduitController mc = fxl.getController();
                 System.out.println(p.get(i).getImage());
+                System.out.println(p.get(i).getImage());
               mc.setData(p.get(i).getNom(),Integer.toString(p.get(i).getPrix()),p.get(i).getDescription(),p.get(i).getImage(),p.get(i).getIdp2());
                 vbox_Prod.getChildren().add(HbProd);
             } catch (IOException ex) {

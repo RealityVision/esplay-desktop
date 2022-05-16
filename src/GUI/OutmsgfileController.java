@@ -39,7 +39,7 @@ public class OutmsgfileController implements Initializable {
     public void setData(String file) throws FileNotFoundException{
         
    InputStream input = new FileInputStream(file);
-        System.out.println(input +"hneee fl fct ");
+        System.out.println(input +"hneee fl fct out file msg");
         Image image = new Image(input);
         
         msg_image.setImage(image);

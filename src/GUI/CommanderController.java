@@ -73,7 +73,7 @@ public class CommanderController implements Initializable {
         
         
        
-     Order  c=new Order(ModelproduitController.id_p,nbr);
+     Order  c=new Order(Authentification_InterfaceController.ID,ModelproduitController.id_p,nbr);
         System.out.println(c);
 
         if (ps.AfficherDetailProduit(ModelproduitController.id_p).getStockProduit()>=nbr)         

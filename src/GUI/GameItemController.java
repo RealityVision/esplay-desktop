@@ -64,13 +64,15 @@ public class GameItemController implements Initializable {
         game_label.setText(label);
         game_dscr.setText(description);
         double val = rate/ratenbr;
-val = val*100;
-val = (double)((int) val);
-val = val /100;
+            val = val*100;
+            val = (double)((int) val);
+            val = val /100;
         rate_game.setText(Double.toString(val));
-        InputStream input = new FileInputStream(Gameimage);
-        System.out.println(input + "hneee fl fct ");
+        
+        InputStream input = new FileInputStream("C:\\wamp64\\www\\"+Gameimage);
+        System.out.println(input + "hneee fl fct game cntr ");
         Image image = new Image(input);
+        
         game_img.setImage(image);
         game_img.setFitHeight(200);
         game_img.setFitWidth(100);
