@@ -13,6 +13,7 @@ import Games.TicTacToe.TicTacToe;
 import entities.Chat;
 import entities.Game;
 import entities.User;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -179,6 +180,59 @@ public class GamplayViewController implements Initializable {
 
                     }
                     break;
+                    case "Super Mario":
+                    try {
+                        try {
+    Desktop.getDesktop().browse(new URL("http://localhost:8000/game/1/play").toURI());
+} catch (Exception e) {}
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+
+                    }
+                    break;
+                    case "Esplay Racing":
+                    try {
+                      try {
+    Desktop.getDesktop().browse(new URL("http://localhost:8000/game/2/play").toURI());
+} catch (Exception e) {}
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+
+                    }
+                    break;
+
+
+                    case "ESPLAY Snake":
+                    try {
+                       try {
+    Desktop.getDesktop().browse(new URL("http://localhost:8000/game/3/play").toURI());
+} catch (Exception e) {}
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+
+                    }
+                    break;
+                    case "Minecraft":
+                    try {
+                       try {
+    Desktop.getDesktop().browse(new URL("http://localhost:8000/game/4/play").toURI());
+} catch (Exception e) {}
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+
+                    }
+                    break;
+                    case "Geometry Dash":
+                    try {
+                       try {
+    Desktop.getDesktop().browse(new URL("http://localhost:8000/game/5/play").toURI());
+} catch (Exception e) {}
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+
+                    }
+                    break;
+                    
                 default:
                     break;
             }

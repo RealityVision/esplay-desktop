@@ -45,7 +45,7 @@ public class UserForgotpassController implements Initializable {
     }    
 
     @FXML
-    private void Onclick_submit(ActionEvent event) {
+    private void Onclick_submit(ActionEvent event) throws IOException {
         UserService us = new UserService();
        User u = us.ReadUser(usernameID.getText());
         if (u.getEmail() != null){
